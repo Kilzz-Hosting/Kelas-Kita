@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Kelas</title>
+<title>IX-C - Pameungpeuk 2</title>
 
 <!-- Font ringan -->
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@500;600;700&display=swap" rel="stylesheet">
@@ -27,6 +27,8 @@
   --muted:#7d8793;
 
   --radius:18px;
+
+  --fs-base: clamp(13px, 3.4vw, 16px);
 }
 
 /* =========================
@@ -52,6 +54,7 @@ body{
   color:var(--white);
 
   font-family:'Rajdhani',Arial,sans-serif;
+  font-size:var(--fs-base);
 
   min-height:100vh;
 
@@ -76,6 +79,7 @@ img{
   width:100%;
   max-width:900px;
   margin:auto;
+  padding:0 clamp(8px, 2vw, 16px);
 }
 
 /* =========================
@@ -96,6 +100,8 @@ img{
   top:0;
 
   z-index:100;
+
+  margin:0 clamp(-8px, -2vw, -16px);
 }
 
 .topbar-left{
@@ -139,7 +145,7 @@ img{
 .topbar-text .username{
   font-family:'Orbitron',sans-serif;
 
-  font-size:.95rem;
+  font-size:clamp(.85rem, 4vw, .95rem);
 
   font-weight:700;
 
@@ -151,13 +157,15 @@ img{
 ========================= */
 
 .hero-section{
-  padding:18px 16px 0;
+  padding:18px 0 0;
 }
 
 .session-card{
   position:relative;
 
-  height:220px;
+  aspect-ratio: 16 / 9;
+  height:auto;
+  max-height:260px;
 
   border-radius:22px;
 
@@ -197,7 +205,7 @@ img{
 ========================= */
 
 .info-strip{
-  margin:14px 16px 0;
+  margin:14px 0 0;
 
   background:var(--card);
 
@@ -255,7 +263,7 @@ img{
 
   gap:10px;
 
-  padding:25px 16px 12px;
+  padding:25px 0 12px;
 }
 
 .sec-bar{
@@ -270,7 +278,7 @@ img{
 .sec-title{
   font-family:'Orbitron',sans-serif;
 
-  font-size:.75rem;
+  font-size:clamp(.68rem, 3.2vw, .75rem);
 
   font-weight:700;
 
@@ -284,7 +292,7 @@ img{
 ========================= */
 
 .accordion-wrap{
-  padding:0 16px;
+  padding:0;
 }
 
 .accordion{
@@ -351,7 +359,7 @@ img{
 .accordion-title{
   font-family:'Orbitron',sans-serif;
 
-  font-size:.72rem;
+  font-size:clamp(.66rem, 3vw, .72rem);
 
   letter-spacing:.1em;
 }
@@ -481,7 +489,7 @@ img{
 }
 
 /* =========================
-   TASKS
+   TASKS TOOLS
 ========================= */
 
 .task-tools{
@@ -516,85 +524,6 @@ img{
   transform:scale(.98);
 }
 
-.task-list{
-  display:flex;
-
-  flex-direction:column;
-
-  gap:9px;
-}
-
-.task-card{
-  display:flex;
-
-  gap:12px;
-
-  padding:11px;
-
-  background:#101317;
-
-  border:1px solid var(--border);
-
-  border-radius:14px;
-}
-
-.task-photo{
-  width:64px;
-  height:64px;
-
-  flex-shrink:0;
-
-  border-radius:10px;
-
-  object-fit:cover;
-
-  background:#20242a;
-}
-
-.task-info{
-  min-width:0;
-}
-
-.task-subject{
-  font-family:'Orbitron',sans-serif;
-
-  color:var(--accent);
-
-  font-size:.55rem;
-
-  letter-spacing:.1em;
-
-  margin-bottom:3px;
-}
-
-.task-name{
-  font-weight:700;
-
-  font-size:.95rem;
-
-  margin-bottom:3px;
-}
-
-.task-description{
-  font-size:.76rem;
-
-  line-height:1.35;
-
-  color:#aeb8c2;
-
-  margin-bottom:5px;
-}
-
-.task-due{
-  font-size:.68rem;
-
-  color:var(--muted);
-}
-
-.task-due strong{
-  color:#dce7ef;
-}
-
 /* =========================
    EMPTY
 ========================= */
@@ -613,72 +542,18 @@ img{
   font-size:.78rem;
 }
 
-/* =========================
-   ADD TASK FORM
-========================= */
+.babu-empty{
+  text-align:center;
 
-.task-form{
-  display:none;
+  padding:25px 10px;
 
-  padding:12px;
+  border:1px dashed var(--border2);
 
-  margin-bottom:10px;
+  border-radius:13px;
 
-  background:#11151a;
+  color:var(--muted);
 
-  border:1px solid var(--border);
-
-  border-radius:14px;
-}
-
-.task-form.show{
-  display:block;
-}
-
-.form-title{
-  font-family:'Orbitron',sans-serif;
-
-  font-size:.62rem;
-
-  color:var(--accent);
-
-  margin-bottom:10px;
-}
-
-.input{
-  width:100%;
-
-  padding:10px 11px;
-
-  margin-bottom:8px;
-
-  background:#0b0e12;
-
-  border:1px solid var(--border2);
-
-  border-radius:9px;
-
-  outline:none;
-
-  color:white;
-
-  font-size:.8rem;
-}
-
-.input:focus{
-  border-color:var(--accent);
-}
-
-textarea.input{
-  resize:none;
-
-  min-height:70px;
-}
-
-.form-buttons{
-  display:flex;
-
-  gap:8px;
+  font-size:.78rem;
 }
 
 /* =========================
@@ -686,7 +561,7 @@ textarea.input{
 ========================= */
 
 .music-widget{
-  margin:20px 16px;
+  margin:20px 0;
 
   padding:12px;
 
@@ -739,7 +614,7 @@ textarea.input{
 
   gap:8px;
 
-  padding:0 16px;
+  padding:0;
 
   margin-bottom:14px;
 
@@ -783,7 +658,7 @@ textarea.input{
 }
 
 .tab-panels{
-  padding:0 16px;
+  padding:0;
 
   min-height:200px;
 }
@@ -842,7 +717,7 @@ textarea.input{
 }
 
 .mc{
-  width:82px;
+  width:clamp(70px, 20vw, 90px);
 
   background:var(--card);
 
@@ -867,7 +742,8 @@ textarea.input{
   display:none;
 
   width:100%;
-  height:70px;
+  aspect-ratio: 1 / 1;
+  height:auto;
 
   object-fit:cover;
 }
@@ -905,7 +781,8 @@ textarea.input{
 .gallery-item img{
   width:100%;
 
-  height:150px;
+  aspect-ratio: 4 / 3;
+  height:auto;
 
   object-fit:cover;
 
@@ -914,6 +791,8 @@ textarea.input{
 
 /* =========================
    TASK SYSTEM
+   (satu-satunya definisi task-card / task-photo,
+   duplikat lama sudah dihapus)
 ========================= */
 
 .task-form {
@@ -970,7 +849,8 @@ textarea.input{
 
 .task-photo {
   width: 100%;
-  height: 130px;
+  aspect-ratio: 16 / 9;
+  height: auto;
   object-fit: cover;
   display: block;
 }
@@ -989,7 +869,7 @@ textarea.input{
 }
 
 .task-name {
-  font-size: 1.15rem;
+  font-size: clamp(1rem, 4.5vw, 1.15rem);
   font-weight: 700;
   color: var(--white);
   margin-bottom: 7px;
@@ -1130,7 +1010,7 @@ textarea.input{
 }
 
 /* =========================
-   MOBILE
+   MOBILE BREAKPOINT
 ========================= */
 
 @media(max-width:420px){
@@ -1155,8 +1035,25 @@ textarea.input{
     width:26px;
   }
 
-  .session-card{
-    height:190px;
+  .mc{
+    width:78px;
+  }
+
+  .mc-name{
+    font-size:.75rem;
+    padding:8px 4px;
+  }
+
+  .accordion-title{
+    font-size:.68rem;
+  }
+
+  .task-name{
+    font-size:1rem;
+  }
+
+  .sec-title{
+    font-size:.7rem;
   }
 
 }
@@ -1193,7 +1090,7 @@ textarea.input{
       </div>
 
       <div class="username">
-        KELAS IX-C
+        IX-C
       </div>
 
     </div>
@@ -1228,7 +1125,7 @@ textarea.input{
     <span class="info-lbl">Wali Kelas</span>
     <span class="info-val">Rini Latifah S.Pd</span>
   </div>
- 
+
   <div class="info-row">
     <span class="info-lbl">KM</span>
     <span class="info-val">Daffa</span>
@@ -1313,110 +1210,131 @@ textarea.input{
     <div class="schedule-grid">
 
 
-    <!-- SENIN --><div class="schedule-card">  <div class="schedule-title"><span class="schedule-day">
-  SENIN
-</span>
+      <!-- SENIN -->
+      <div class="schedule-card">
+        <div class="schedule-title">
+          <span class="schedule-day">SENIN</span>
+          <span class="schedule-count">4 PELAJARAN</span>
+        </div>
+        <div class="lesson">
+          <span class="lesson-number">01</span>
+          <span class="lesson-name">Pendidikan Pancasila</span>
+        </div>
+        <div class="lesson">
+          <span class="lesson-number">02</span>
+          <span class="lesson-name">Prakarya</span>
+        </div>
+        <div class="lesson">
+          <span class="lesson-number">03</span>
+          <span class="lesson-name">PJOK</span>
+        </div>
+        <div class="lesson">
+          <span class="lesson-number">04</span>
+          <span class="lesson-name">IPA Terpadu</span>
+        </div>
+      </div>
 
-<span class="schedule-count">
-  4 PELAJARAN
-</span>
+      <!-- SELASA -->
+      <div class="schedule-card">
+        <div class="schedule-title">
+          <span class="schedule-day">SELASA</span>
+          <span class="schedule-count">5 PELAJARAN</span>
+        </div>
+        <div class="lesson">
+          <span class="lesson-number">01</span>
+          <span class="lesson-name">BP/BK</span>
+        </div>
+        <div class="lesson">
+          <span class="lesson-number">02</span>
+          <span class="lesson-name">IPS Terpadu</span>
+        </div>
+        <div class="lesson">
+          <span class="lesson-number">03</span>
+          <span class="lesson-name">B.Sunda</span>
+        </div>
+        <div class="lesson">
+          <span class="lesson-number">04</span>
+          <span class="lesson-name">PAIBP</span>
+        </div>
+        <div class="lesson">
+          <span class="lesson-number">05</span>
+          <span class="lesson-name">B.Inggris</span>
+        </div>
+      </div>
 
-  </div>  <div class="lesson">
-    <span class="lesson-number">01</span>
-    <span class="lesson-name">Pendidikan Pancasila</span>
-  </div>  <div class="lesson">
-    <span class="lesson-number">02</span>
-    <span class="lesson-name">Prakarya</span>
-  </div>  <div class="lesson">
-    <span class="lesson-number">03</span>
-    <span class="lesson-name">PJOK</span>
-  </div>  <div class="lesson">
-    <span class="lesson-number">04</span>
-    <span class="lesson-name">IPA Terpadu</span>
-  </div></div><!-- SELASA --><div class="schedule-card">  <div class="schedule-title"><span class="schedule-day">
-  SELASA
-</span>
+      <!-- RABU -->
+      <div class="schedule-card">
+        <div class="schedule-title">
+          <span class="schedule-day">RABU</span>
+          <span class="schedule-count">4 PELAJARAN</span>
+        </div>
+        <div class="lesson">
+          <span class="lesson-number">01</span>
+          <span class="lesson-name">B.Inggris</span>
+        </div>
+        <div class="lesson">
+          <span class="lesson-number">02</span>
+          <span class="lesson-name">B.Indonesia</span>
+        </div>
+        <div class="lesson">
+          <span class="lesson-number">03</span>
+          <span class="lesson-name">Pendidikan Pancasila</span>
+        </div>
+        <div class="lesson">
+          <span class="lesson-number">04</span>
+          <span class="lesson-name">Matematika</span>
+        </div>
+      </div>
 
-<span class="schedule-count">
-  5 PELAJARAN
-</span>
+      <!-- KAMIS -->
+      <div class="schedule-card">
+        <div class="schedule-title">
+          <span class="schedule-day">KAMIS</span>
+          <span class="schedule-count">5 PELAJARAN</span>
+        </div>
+        <div class="lesson">
+          <span class="lesson-number">01</span>
+          <span class="lesson-name">IPS Terpadu</span>
+        </div>
+        <div class="lesson">
+          <span class="lesson-number">02</span>
+          <span class="lesson-name">Matematika</span>
+        </div>
+        <div class="lesson">
+          <span class="lesson-number">03</span>
+          <span class="lesson-name">B.Indonesia</span>
+        </div>
+        <div class="lesson">
+          <span class="lesson-number">04</span>
+          <span class="lesson-name">IPA Terpadu</span>
+        </div>
+        <div class="lesson">
+          <span class="lesson-number">05</span>
+          <span class="lesson-name">Mengaji</span>
+        </div>
+      </div>
 
-  </div>  <div class="lesson">
-    <span class="lesson-number">01</span>
-    <span class="lesson-name">BP/BK</span>
-  </div>  <div class="lesson">
-    <span class="lesson-number">02</span>
-    <span class="lesson-name">IPS Terpadu</span>
-  </div>  <div class="lesson">
-    <span class="lesson-number">03</span>
-    <span class="lesson-name">B.Sunda</span>
-  </div>  <div class="lesson">
-    <span class="lesson-number">04</span>
-    <span class="lesson-name">PAIBP</span>
-  </div>  <div class="lesson">
-    <span class="lesson-number">05</span>
-    <span class="lesson-name">B.Inggris</span>
-  </div></div><!-- RABU --><div class="schedule-card">  <div class="schedule-title"><span class="schedule-day">
-  RABU
-</span>
+      <!-- JUMAT -->
+      <div class="schedule-card friday">
+        <div class="schedule-title">
+          <span class="schedule-day">JUMAT</span>
+          <span class="schedule-count">2 PELAJARAN</span>
+        </div>
+        <div class="lesson">
+          <span class="lesson-number">01</span>
+          <span class="lesson-name">B.Indonesia</span>
+        </div>
+        <div class="lesson">
+          <span class="lesson-number">02</span>
+          <span class="lesson-name">Informatika</span>
+        </div>
+      </div>
 
-<span class="schedule-count">
-  4 PELAJARAN
-</span>
-
-  </div>  <div class="lesson">
-    <span class="lesson-number">01</span>
-    <span class="lesson-name">B.Inggris</span>
-  </div>  <div class="lesson">
-    <span class="lesson-number">02</span>
-    <span class="lesson-name">B.Indonesia</span>
-  </div>  <div class="lesson">
-    <span class="lesson-number">03</span>
-    <span class="lesson-name">Pendidikan Pancasila</span>
-  </div>  <div class="lesson">
-    <span class="lesson-number">04</span>
-    <span class="lesson-name">Matematika</span>
-  </div></div><!-- KAMIS --><div class="schedule-card">  <div class="schedule-title"><span class="schedule-day">
-  KAMIS
-</span>
-
-<span class="schedule-count">
-  5 PELAJARAN
-</span>
-
-  </div>  <div class="lesson">
-    <span class="lesson-number">01</span>
-    <span class="lesson-name">IPS Terpadu</span>
-  </div>  <div class="lesson">
-    <span class="lesson-number">02</span>
-    <span class="lesson-name">Matematika</span>
-  </div>  <div class="lesson">
-    <span class="lesson-number">03</span>
-    <span class="lesson-name">B.Indonesia</span>
-  </div>  <div class="lesson">
-    <span class="lesson-number">04</span>
-    <span class="lesson-name">IPA Terpadu</span>
-  </div>  <div class="lesson">
-    <span class="lesson-number">05</span>
-    <span class="lesson-name">Mengaji</span>
-  </div></div><!-- JUMAT --><div class="schedule-card friday">  <div class="schedule-title"><span class="schedule-day">
-  JUMAT
-</span>
-
-<span class="schedule-count">
-  2 PELAJARAN
-</span>
-
-  </div>  <div class="lesson">
-    <span class="lesson-number">01</span>
-    <span class="lesson-name">B.Indonesia</span>
-  </div>  <div class="lesson">
-    <span class="lesson-number">02</span>
-    <span class="lesson-name">Informatika</span>
-  </div></div>
+    </div>
 
   </div>
-  </div>
+
+</div>
 
 
 <!-- =====================================================
@@ -1476,96 +1394,92 @@ textarea.input{
 
     <div class="task-form" id="taskForm">
 
-  <select id="taskSubject">
-    <option value="">Pilih Pelajaran</option>
+      <select id="taskSubject">
+        <option value="">Pilih Pelajaran</option>
 
-    <!--
-      URL FOTO SUDAH DISIMPAN DI SINI.
-      Tinggal ubah URL-nya nanti.
-    -->
-    <option value="Matematika"
-      data-img="https://via.placeholder.com/300x180?text=Matematika">
-      Matematika
-    </option>
+        <option value="Matematika"
+          data-img="https://files.catbox.moe/nfqxr0.jpeg">
+          Matematika
+        </option>
 
-    <option value="Bahasa Indonesia"
-      data-img="https://via.placeholder.com/300x180?text=Bahasa+Indonesia">
-      Bahasa Indonesia
-    </option>
+        <option value="Bahasa Indonesia"
+          data-img="https://files.catbox.moe/glfln4.jpeg">
+          Bahasa Indonesia
+        </option>
 
-    <option value="Bahasa Inggris"
-      data-img="https://via.placeholder.com/300x180?text=Bahasa+Inggris">
-      Bahasa Inggris
-    </option>
+        <option value="Bahasa Inggris"
+          data-img="https://files.catbox.moe/4115s4.jpeg">
+          Bahasa Inggris
+        </option>
 
-    <option value="IPA"
-      data-img="https://via.placeholder.com/300x180?text=IPA">
-      IPA
-    </option>
+        <option value="IPA"
+          data-img="https://via.placeholder.com/300x180?text=IPA">
+          IPA
+        </option>
 
-    <option value="IPS"
-      data-img="https://via.placeholder.com/300x180?text=IPS">
-      IPS
-    </option>
+        <option value="IPS"
+          data-img="https://via.placeholder.com/300x180?text=IPS">
+          IPS
+        </option>
 
-    <option value="PPKn"
-      data-img="https://via.placeholder.com/300x180?text=PPKn">
-      PPKn
-    </option>
+        <option value="PPKn"
+          data-img="https://via.placeholder.com/300x180?text=PPKn">
+          PPKn
+        </option>
 
-    <option value="PJOK"
-      data-img="https://via.placeholder.com/300x180?text=PJOK">
-      PJOK
-    </option>
+        <option value="PJOK"
+          data-img="https://via.placeholder.com/300x180?text=PJOK">
+          PJOK
+        </option>
 
-    <option value="Seni Budaya"
-      data-img="https://via.placeholder.com/300x180?text=Seni+Budaya">
-      Seni Budaya
-    </option>
+        <option value="Seni Budaya"
+          data-img="https://via.placeholder.com/300x180?text=Seni+Budaya">
+          Seni Budaya
+        </option>
 
-    <option value="Informatika"
-      data-img="https://via.placeholder.com/300x180?text=Informatika">
-      Informatika
-    </option>
+        <option value="Informatika"
+          data-img="https://via.placeholder.com/300x180?text=Informatika">
+          Informatika
+        </option>
 
-    <option value="Prakarya"
-      data-img="https://via.placeholder.com/300x180?text=Prakarya">
-      Prakarya
-    </option>
+        <option value="Prakarya"
+          data-img="https://via.placeholder.com/300x180?text=Prakarya">
+          Prakarya
+        </option>
 
-  </select>
+      </select>
 
-  <input
-    type="text"
-    id="taskName"
-    placeholder="Nama Tugas"
-    autocomplete="off"
-  >
+      <input
+        type="text"
+        id="taskName"
+        placeholder="Nama Tugas"
+        autocomplete="off"
+      >
 
-  <textarea
-    id="taskWork"
-    placeholder="Yang Dikerjakan"
-    rows="3"
-  ></textarea>
+      <textarea
+        id="taskWork"
+        placeholder="Yang Dikerjakan"
+        rows="3"
+      ></textarea>
 
-  <input
-    type="text"
-    id="taskDate"
-    placeholder="Hari Dikumpulkan"
-    autocomplete="off"
-  >
+      <input
+        type="text"
+        id="taskDate"
+        placeholder="Hari Dikumpulkan"
+        autocomplete="off"
+      >
 
-  <button type="button" onclick="addTask()" class="btn-glass">
-    + TAMBAH TUGAS
-  </button>
+      <button type="button" onclick="addTask()" class="btn-glass">
+        + TAMBAH TUGAS
+      </button>
 
-</div>
+    </div>
 
-<div id="taskList"></div>
+    <div id="taskList"></div>
 
-<div id="taskEmpty" class="babu-empty">
-  <div class="bt">Belum Ada Tugas</div>
-</div>
+    <div id="taskEmpty" class="babu-empty">
+      <div class="bt">Belum Ada Tugas</div>
+    </div>
 
   </div>
 
@@ -1673,141 +1587,205 @@ textarea.input{
 
   <div class="member-grid">
 
-
-    <!--
-      FOTO MURID TERSEMBUNYI.
-
-      Kalau mau menggunakan foto:
-
-      1. Ubah:
-         display:none;
-
-         menjadi:
-         display:block;
-
-      2. Ganti GANTI_URL dengan URL foto.
-    -->
-
-
     <div class="mc">
-
-      <img
-        class="mc-photo"
-        src="GANTI_URL_FOTO_MURID_1"
-        alt="Murid 1"
-      >
-
-      <div class="mc-name">
-        Murid 1
-      </div>
-
+      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_1" alt="Murid 1">
+      <div class="mc-name">Murid 1</div>
     </div>
 
-
     <div class="mc">
-
-      <img
-        class="mc-photo"
-        src="GANTI_URL_FOTO_MURID_2"
-        alt="Murid 2"
-      >
-
-      <div class="mc-name">
-        Murid 2
-      </div>
-
+      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_2" alt="Murid 2">
+      <div class="mc-name">Murid 2</div>
     </div>
 
-
     <div class="mc">
-
-      <img
-        class="mc-photo"
-        src="GANTI_URL_FOTO_MURID_3"
-        alt="Murid 3"
-      >
-
-      <div class="mc-name">
-        Murid 3
-      </div>
-
+      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_3" alt="Murid 3">
+      <div class="mc-name">Murid 3</div>
     </div>
 
-
     <div class="mc">
-
-      <img
-        class="mc-photo"
-        src="GANTI_URL_FOTO_MURID_4"
-        alt="Murid 4"
-      >
-
-      <div class="mc-name">
-        Murid 4
-      </div>
-
+      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_4" alt="Murid 4">
+      <div class="mc-name">Murid 4</div>
     </div>
 
-
     <div class="mc">
-
-      <img
-        class="mc-photo"
-        src="GANTI_URL_FOTO_MURID_5"
-        alt="Murid 5"
-      >
-
-      <div class="mc-name">
-        Murid 5
-      </div>
-
+      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_5" alt="Murid 5">
+      <div class="mc-name">Murid 5</div>
     </div>
 
-
     <div class="mc">
-
-      <img
-        class="mc-photo"
-        src="GANTI_URL_FOTO_MURID_6"
-        alt="Murid 6"
-      >
-
-      <div class="mc-name">
-        Murid 6
-      </div>
-
+      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_6" alt="Murid 6">
+      <div class="mc-name">Murid 6</div>
     </div>
 
-
     <div class="mc">
-
-      <img
-        class="mc-photo"
-        src="GANTI_URL_FOTO_MURID_7"
-        alt="Murid 7"
-      >
-
-      <div class="mc-name">
-        Murid 7
-      </div>
-
+      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_7" alt="Murid 7">
+      <div class="mc-name">Murid 7</div>
     </div>
 
-
     <div class="mc">
-
-      <img
-        class="mc-photo"
-        src="GANTI_URL_FOTO_MURID_8"
-        alt="Murid 8"
-      >
-
-      <div class="mc-name">
-        Murid 8
-      </div>
-
+      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_8" alt="Murid 8">
+      <div class="mc-name">Murid 8</div>
     </div>
 
+    <div class="mc">
+      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_9" alt="Murid 9">
+      <div class="mc-name">Murid 9</div>
+    </div>
+
+    <div class="mc">
+      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_10" alt="Murid 10">
+      <div class="mc-name">Murid 10</div>
+    </div>
+
+    <div class="mc">
+      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_11" alt="Murid 11">
+      <div class="mc-name">Murid 11</div>
+    </div>
+
+    <div class="mc">
+      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_12" alt="Murid 12">
+      <div class="mc-name">Murid 12</div>
+    </div>
+
+    <div class="mc">
+      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_13" alt="Murid 13">
+      <div class="mc-name">Murid 13</div>
+    </div>
+
+    <div class="mc">
+      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_14" alt="Murid 14">
+      <div class="mc-name">Murid 14</div>
+    </div>
+
+    <div class="mc">
+      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_15" alt="Murid 15">
+      <div class="mc-name">Murid 15</div>
+    </div>
+
+    <div class="mc">
+      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_16" alt="Murid 16">
+      <div class="mc-name">Murid 16</div>
+    </div>
+
+    <div class="mc">
+      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_17" alt="Murid 17">
+      <div class="mc-name">Murid 17</div>
+    </div>
+
+    <div class="mc">
+      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_18" alt="Murid 18">
+      <div class="mc-name">Murid 18</div>
+    </div>
+
+    <div class="mc">
+      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_19" alt="Murid 19">
+      <div class="mc-name">Murid 19</div>
+    </div>
+
+    <div class="mc">
+      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_20" alt="Murid 20">
+      <div class="mc-name">Murid 20</div>
+    </div>
+
+    <div class="mc">
+      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_21" alt="Murid 21">
+      <div class="mc-name">Murid 21</div>
+    </div>
+
+    <div class="mc">
+      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_22" alt="Murid 22">
+      <div class="mc-name">Murid 22</div>
+    </div>
+
+    <div class="mc">
+      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_23" alt="Murid 23">
+      <div class="mc-name">Murid 23</div>
+    </div>
+
+    <div class="mc">
+      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_24" alt="Murid 24">
+      <div class="mc-name">Murid 24</div>
+    </div>
+
+    <div class="mc">
+      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_25" alt="Murid 25">
+      <div class="mc-name">Murid 25</div>
+    </div>
+
+    <div class="mc">
+      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_26" alt="Murid 26">
+      <div class="mc-name">Murid 26</div>
+    </div>
+
+    <div class="mc">
+      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_27" alt="Murid 27">
+      <div class="mc-name">Murid 27</div>
+    </div>
+
+    <div class="mc">
+      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_28" alt="Murid 28">
+      <div class="mc-name">Murid 28</div>
+    </div>
+
+    <div class="mc">
+      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_29" alt="Murid 29">
+      <div class="mc-name">Murid 29</div>
+    </div>
+
+    <div class="mc">
+      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_30" alt="Murid 30">
+      <div class="mc-name">Murid 30</div>
+    </div>
+
+    <div class="mc">
+      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_31" alt="Murid 31">
+      <div class="mc-name">Murid 31</div>
+    </div>
+
+    <div class="mc">
+      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_32" alt="Murid 32">
+      <div class="mc-name">Murid 32</div>
+    </div>
+
+    <div class="mc">
+      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_33" alt="Murid 33">
+      <div class="mc-name">Murid 33</div>
+    </div>
+
+    <div class="mc">
+      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_34" alt="Murid 34">
+      <div class="mc-name">Murid 34</div>
+    </div>
+
+    <div class="mc">
+      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_35" alt="Murid 35">
+      <div class="mc-name">Murid 35</div>
+    </div>
+
+    <div class="mc">
+      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_36" alt="Murid 36">
+      <div class="mc-name">Murid 36</div>
+    </div>
+
+    <div class="mc">
+      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_37" alt="Murid 37">
+      <div class="mc-name">Murid 37</div>
+    </div>
+
+    <div class="mc">
+      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_38" alt="Murid 38">
+      <div class="mc-name">Murid 38</div>
+    </div>
+
+    <div class="mc">
+      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_39" alt="Murid 39">
+      <div class="mc-name">Murid 39</div>
+    </div>
+
+    <div class="mc">
+      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_40" alt="Murid 40">
+      <div class="mc-name">Murid 40</div>
+    </div>
 
   </div>
 
@@ -1826,46 +1804,21 @@ textarea.input{
 
   <div class="gallery-grid">
 
-
     <div class="gallery-item">
-
-      <img
-        src="GANTI_URL_FOTO_KENANGAN_1"
-        alt="Kenangan 1"
-      >
-
+      <img src="https://files.catbox.moe/rris6z.jpg" alt="Kenangan 1">
     </div>
 
-
     <div class="gallery-item">
-
-      <img
-        src="GANTI_URL_FOTO_KENANGAN_2"
-        alt="Kenangan 2"
-      >
-
+      <img src="https://files.catbox.moe/c1sdji.jpg" alt="Kenangan 2">
     </div>
 
-
     <div class="gallery-item">
-
-      <img
-        src="GANTI_URL_FOTO_KENANGAN_3"
-        alt="Kenangan 3"
-      >
-
+      <img src="https://files.catbox.moe/1v68gr.jpg" alt="Kenangan 3">
     </div>
 
-
     <div class="gallery-item">
-
-      <img
-        src="GANTI_URL_FOTO_KENANGAN_4"
-        alt="Kenangan 4"
-      >
-
+      <img src="https://files.catbox.moe/0yxucj.jpg" alt="Kenangan 4">
     </div>
-
 
   </div>
 
