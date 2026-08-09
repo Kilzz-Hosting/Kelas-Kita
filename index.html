@@ -1,0 +1,2253 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kelas</title>
+
+<!-- Font ringan -->
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+  --bg:#08090b;
+  --bg2:#0d0f12;
+  --card:#15181d;
+  --card2:#191d23;
+
+  --border:#292e36;
+  --border2:#343b45;
+
+  --accent:#62c9ff;
+  --accent2:#91ddff;
+
+  --white:#edf4f8;
+  --muted:#7d8793;
+
+  --radius:18px;
+}
+
+/* =========================
+   BASIC
+========================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:
+    radial-gradient(circle at 10% 0%,#151a20 0%,transparent 35%),
+    radial-gradient(circle at 100% 100%,#11151a 0%,transparent 40%),
+    var(--bg);
+
+  color:var(--white);
+
+  font-family:'Rajdhani',Arial,sans-serif;
+
+  min-height:100vh;
+
+  overflow-x:hidden;
+}
+
+button,
+input,
+textarea{
+  font-family:inherit;
+}
+
+img{
+  max-width:100%;
+}
+
+/* =========================
+   WRAPPER
+========================= */
+
+.wrap{
+  width:100%;
+  max-width:900px;
+  margin:auto;
+}
+
+/* =========================
+   TOP BAR
+========================= */
+
+.topbar{
+  display:flex;
+  align-items:center;
+
+  padding:16px 18px;
+
+  border-bottom:1px solid var(--border);
+
+  background:#090b0e;
+
+  position:sticky;
+  top:0;
+
+  z-index:100;
+}
+
+.topbar-left{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.logo-circle{
+  width:44px;
+  height:44px;
+
+  border-radius:50%;
+
+  border:1px solid var(--border2);
+
+  overflow:hidden;
+
+  flex-shrink:0;
+
+  background:#11151a;
+}
+
+.logo-circle img{
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+}
+
+.topbar-text .welcome{
+  font-family:'Orbitron',sans-serif;
+
+  font-size:.48rem;
+
+  letter-spacing:.2em;
+
+  color:var(--muted);
+}
+
+.topbar-text .username{
+  font-family:'Orbitron',sans-serif;
+
+  font-size:.95rem;
+
+  font-weight:700;
+
+  letter-spacing:.06em;
+}
+
+/* =========================
+   HERO IMAGE
+========================= */
+
+.hero-section{
+  padding:18px 16px 0;
+}
+
+.session-card{
+  position:relative;
+
+  height:220px;
+
+  border-radius:22px;
+
+  overflow:hidden;
+
+  border:1px solid var(--border2);
+
+  background:#101419;
+
+  box-shadow:0 8px 25px rgba(0,0,0,.35);
+}
+
+.session-bg-img{
+  position:absolute;
+  inset:0;
+
+  background-image:url('https://files.catbox.moe/2ui4wm.jpg');
+
+  background-size:cover;
+  background-position:center;
+
+  opacity:1;
+}
+
+/*
+  Tidak ada overlay gelap supaya foto tidak blur.
+*/
+
+.session-bg-overlay,
+.session-bg-ice,
+.session-content{
+  display:none;
+}
+
+/* =========================
+   INFO STRIP
+========================= */
+
+.info-strip{
+  margin:14px 16px 0;
+
+  background:var(--card);
+
+  border:1px solid var(--border);
+
+  border-radius:var(--radius);
+
+  overflow:hidden;
+}
+
+.info-row{
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  padding:12px 15px;
+
+  border-bottom:1px solid var(--border);
+}
+
+.info-row:last-child{
+  border-bottom:none;
+}
+
+.info-lbl{
+  font-family:'Orbitron',sans-serif;
+
+  font-size:.52rem;
+
+  letter-spacing:.15em;
+
+  color:var(--accent);
+
+  text-transform:uppercase;
+}
+
+.info-val{
+  font-size:.9rem;
+
+  font-weight:700;
+
+  color:var(--white);
+}
+
+/* =========================
+   SECTION HEADER
+========================= */
+
+.sec-header{
+  display:flex;
+
+  align-items:center;
+
+  gap:10px;
+
+  padding:25px 16px 12px;
+}
+
+.sec-bar{
+  width:4px;
+  height:21px;
+
+  border-radius:2px;
+
+  background:var(--accent);
+}
+
+.sec-title{
+  font-family:'Orbitron',sans-serif;
+
+  font-size:.75rem;
+
+  font-weight:700;
+
+  letter-spacing:.18em;
+
+  text-transform:uppercase;
+}
+
+/* =========================
+   ACCORDION
+========================= */
+
+.accordion-wrap{
+  padding:0 16px;
+}
+
+.accordion{
+  border:1px solid var(--border);
+
+  background:var(--card);
+
+  border-radius:16px;
+
+  overflow:hidden;
+
+  margin-bottom:10px;
+}
+
+.accordion-header{
+  width:100%;
+
+  border:0;
+
+  background:none;
+
+  color:var(--white);
+
+  padding:16px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  cursor:pointer;
+
+  text-align:left;
+}
+
+.accordion-left{
+  display:flex;
+
+  align-items:center;
+
+  gap:12px;
+}
+
+.accordion-icon{
+  width:36px;
+  height:36px;
+
+  border-radius:10px;
+
+  background:#20252c;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  color:var(--accent);
+
+  font-size:1rem;
+}
+
+.accordion-title{
+  font-family:'Orbitron',sans-serif;
+
+  font-size:.72rem;
+
+  letter-spacing:.1em;
+}
+
+.accordion-desc{
+  margin-top:3px;
+
+  color:var(--muted);
+
+  font-size:.72rem;
+}
+
+.accordion-arrow{
+  color:var(--muted);
+
+  font-size:1.1rem;
+
+  transition:transform .2s;
+}
+
+.accordion.open .accordion-arrow{
+  transform:rotate(180deg);
+}
+
+.accordion-body{
+  display:none;
+
+  padding:0 12px 12px;
+}
+
+.accordion.open .accordion-body{
+  display:block;
+}
+
+/* =========================
+   SCHEDULE
+========================= */
+
+.schedule-grid{
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  gap:9px;
+}
+
+.schedule-card{
+  background:#101317;
+
+  border:1px solid var(--border);
+
+  border-radius:13px;
+
+  overflow:hidden;
+}
+
+.schedule-title{
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  padding:11px;
+
+  border-bottom:1px solid var(--border);
+
+  background:#181c21;
+}
+
+.schedule-day{
+  font-family:'Orbitron',sans-serif;
+
+  font-size:.62rem;
+
+  color:var(--white);
+
+  letter-spacing:.08em;
+}
+
+.schedule-count{
+  font-size:.58rem;
+
+  color:var(--accent);
+}
+
+.lesson{
+  display:flex;
+
+  align-items:center;
+
+  min-height:32px;
+
+  border-bottom:1px solid #20242a;
+}
+
+.lesson:last-child{
+  border-bottom:none;
+}
+
+.lesson-number{
+  width:30px;
+
+  text-align:center;
+
+  color:var(--accent);
+
+  font-family:'Orbitron',sans-serif;
+
+  font-size:.55rem;
+}
+
+.lesson-name{
+  flex:1;
+
+  padding:7px 6px;
+
+  font-size:.76rem;
+
+  color:#dbe2e8;
+}
+
+/* Jumat full */
+
+.schedule-card.friday{
+  grid-column:1 / -1;
+}
+
+/* =========================
+   TASKS
+========================= */
+
+.task-tools{
+  display:flex;
+
+  gap:8px;
+
+  margin-bottom:10px;
+}
+
+.btn{
+  border:1px solid var(--border2);
+
+  background:#1b2026;
+
+  color:var(--accent);
+
+  padding:10px 13px;
+
+  border-radius:11px;
+
+  cursor:pointer;
+
+  font-family:'Orbitron',sans-serif;
+
+  font-size:.55rem;
+
+  letter-spacing:.08em;
+}
+
+.btn:active{
+  transform:scale(.98);
+}
+
+.task-list{
+  display:flex;
+
+  flex-direction:column;
+
+  gap:9px;
+}
+
+.task-card{
+  display:flex;
+
+  gap:12px;
+
+  padding:11px;
+
+  background:#101317;
+
+  border:1px solid var(--border);
+
+  border-radius:14px;
+}
+
+.task-photo{
+  width:64px;
+  height:64px;
+
+  flex-shrink:0;
+
+  border-radius:10px;
+
+  object-fit:cover;
+
+  background:#20242a;
+}
+
+.task-info{
+  min-width:0;
+}
+
+.task-subject{
+  font-family:'Orbitron',sans-serif;
+
+  color:var(--accent);
+
+  font-size:.55rem;
+
+  letter-spacing:.1em;
+
+  margin-bottom:3px;
+}
+
+.task-name{
+  font-weight:700;
+
+  font-size:.95rem;
+
+  margin-bottom:3px;
+}
+
+.task-description{
+  font-size:.76rem;
+
+  line-height:1.35;
+
+  color:#aeb8c2;
+
+  margin-bottom:5px;
+}
+
+.task-due{
+  font-size:.68rem;
+
+  color:var(--muted);
+}
+
+.task-due strong{
+  color:#dce7ef;
+}
+
+/* =========================
+   EMPTY
+========================= */
+
+.empty{
+  text-align:center;
+
+  padding:25px 10px;
+
+  border:1px dashed var(--border2);
+
+  border-radius:13px;
+
+  color:var(--muted);
+
+  font-size:.78rem;
+}
+
+/* =========================
+   ADD TASK FORM
+========================= */
+
+.task-form{
+  display:none;
+
+  padding:12px;
+
+  margin-bottom:10px;
+
+  background:#11151a;
+
+  border:1px solid var(--border);
+
+  border-radius:14px;
+}
+
+.task-form.show{
+  display:block;
+}
+
+.form-title{
+  font-family:'Orbitron',sans-serif;
+
+  font-size:.62rem;
+
+  color:var(--accent);
+
+  margin-bottom:10px;
+}
+
+.input{
+  width:100%;
+
+  padding:10px 11px;
+
+  margin-bottom:8px;
+
+  background:#0b0e12;
+
+  border:1px solid var(--border2);
+
+  border-radius:9px;
+
+  outline:none;
+
+  color:white;
+
+  font-size:.8rem;
+}
+
+.input:focus{
+  border-color:var(--accent);
+}
+
+textarea.input{
+  resize:none;
+
+  min-height:70px;
+}
+
+.form-buttons{
+  display:flex;
+
+  gap:8px;
+}
+
+/* =========================
+   MUSIC
+========================= */
+
+.music-widget{
+  margin:20px 16px;
+
+  padding:12px;
+
+  background:var(--card2);
+
+  border:1px solid var(--border);
+
+  border-radius:var(--radius);
+
+  display:flex;
+
+  align-items:center;
+
+  gap:13px;
+}
+
+.music-thumb{
+  width:50px;
+  height:50px;
+
+  border-radius:10px;
+
+  object-fit:cover;
+
+  flex-shrink:0;
+}
+
+.music-name{
+  font-size:.8rem;
+
+  font-weight:700;
+}
+
+.music-control{
+  cursor:pointer;
+
+  color:var(--accent);
+
+  font-size:.7rem;
+
+  margin-top:4px;
+}
+
+/* =========================
+   TABS
+========================= */
+
+.tab-nav{
+  display:flex;
+
+  gap:8px;
+
+  padding:0 16px;
+
+  margin-bottom:14px;
+
+  overflow-x:auto;
+
+  scrollbar-width:none;
+}
+
+.tab-nav::-webkit-scrollbar{
+  display:none;
+}
+
+.tab-btn{
+  flex:0 0 auto;
+
+  padding:9px 16px;
+
+  border:1px solid var(--border);
+
+  background:#111419;
+
+  color:var(--muted);
+
+  border-radius:20px;
+
+  font-family:'Orbitron',sans-serif;
+
+  font-size:.55rem;
+
+  letter-spacing:.1em;
+
+  cursor:pointer;
+}
+
+.tab-btn.active{
+  border-color:var(--accent);
+
+  color:var(--accent);
+
+  background:#15232c;
+}
+
+.tab-panels{
+  padding:0 16px;
+
+  min-height:200px;
+}
+
+.tab-panel{
+  display:none;
+}
+
+.tab-panel.active{
+  display:block;
+}
+
+/* =========================
+   MURID
+========================= */
+
+.member-cat{
+  display:flex;
+
+  align-items:center;
+
+  gap:10px;
+
+  color:var(--accent2);
+
+  font-family:'Orbitron',sans-serif;
+
+  font-size:.65rem;
+
+  letter-spacing:.12em;
+
+  margin-bottom:10px;
+}
+
+.member-cat:before,
+.member-cat:after{
+  content:'';
+
+  flex:1;
+
+  height:1px;
+
+  background:var(--border);
+}
+
+.member-grid{
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:8px;
+
+  justify-content:center;
+
+  margin-bottom:18px;
+}
+
+.mc{
+  width:82px;
+
+  background:var(--card);
+
+  border:1px solid var(--border);
+
+  border-radius:11px;
+
+  overflow:hidden;
+
+  text-align:center;
+}
+
+/*
+  FOTO MURID DISEMBUNYIKAN.
+
+  Kalau ingin menampilkan foto:
+  1. Hapus display:none;
+  2. Masukkan URL ke src.
+*/
+
+.mc-photo{
+  display:none;
+
+  width:100%;
+  height:70px;
+
+  object-fit:cover;
+}
+
+.mc-name{
+  padding:9px 5px;
+
+  font-size:.8rem;
+
+  font-weight:700;
+}
+
+/* =========================
+   GALERI
+========================= */
+
+.gallery-grid{
+  display:grid;
+
+  grid-template-columns:repeat(2,1fr);
+
+  gap:8px;
+}
+
+.gallery-item{
+  border-radius:12px;
+
+  overflow:hidden;
+
+  border:1px solid var(--border);
+
+  background:#11151a;
+}
+
+.gallery-item img{
+  width:100%;
+
+  height:150px;
+
+  object-fit:cover;
+
+  display:block;
+}
+
+/* =========================
+   TASK SYSTEM
+========================= */
+
+.task-form {
+  background: rgba(255,255,255,0.035);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 14px;
+  margin-bottom: 16px;
+}
+
+.task-form select,
+.task-form input,
+.task-form textarea {
+  width: 100%;
+  background: rgba(0,0,0,0.35);
+  color: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  padding: 11px 12px;
+  margin-bottom: 9px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: .9rem;
+  outline: none;
+}
+
+.task-form select:focus,
+.task-form input:focus,
+.task-form textarea:focus {
+  border-color: var(--accent);
+}
+
+.task-form textarea {
+  resize: vertical;
+  min-height: 70px;
+}
+
+.task-form option {
+  background: #111;
+  color: white;
+}
+
+.task-form .btn-glass {
+  width: 100%;
+  margin: 3px 0 0;
+}
+
+.task-card {
+  overflow: hidden;
+  background: rgba(255,255,255,0.045);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  margin-bottom: 12px;
+}
+
+.task-photo {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  display: block;
+}
+
+.task-content {
+  padding: 14px;
+}
+
+.task-subject {
+  font-family: 'Orbitron', sans-serif;
+  font-size: .65rem;
+  letter-spacing: .12em;
+  color: var(--accent);
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.task-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 7px;
+}
+
+.task-work {
+  font-size: .9rem;
+  color: rgba(234,245,255,.72);
+  line-height: 1.45;
+  white-space: pre-wrap;
+}
+
+.task-date {
+  margin-top: 12px;
+  padding-top: 9px;
+  border-top: 1px solid var(--border);
+  font-family: 'Orbitron', sans-serif;
+  font-size: .55rem;
+  letter-spacing: .08em;
+  color: var(--accent2);
+}
+
+.task-delete {
+  margin-top: 12px;
+  width: 100%;
+  padding: 8px;
+  border-radius: 9px;
+  background: rgba(255,60,60,.06);
+  border: 1px solid rgba(255,70,70,.25);
+  color: #ff7070;
+  font-family: 'Orbitron', sans-serif;
+  font-size: .55rem;
+  cursor: pointer;
+}
+
+.task-delete:active {
+  transform: scale(.98);
+}
+
+/* =========================
+   BABU HIDDEN
+========================= */
+
+#tab-babu{
+  display:none !important;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal-overlay{
+  position:fixed;
+
+  inset:0;
+
+  z-index:500;
+
+  background:rgba(0,0,0,.75);
+
+  display:none;
+
+  align-items:center;
+
+  justify-content:center;
+
+  padding:20px;
+}
+
+.modal-overlay.show{
+  display:flex;
+}
+
+.modal-box{
+  width:100%;
+
+  max-width:360px;
+
+  background:#15191e;
+
+  border:1px solid var(--border2);
+
+  border-radius:17px;
+
+  padding:20px;
+
+  position:relative;
+}
+
+.modal-close{
+  position:absolute;
+
+  right:12px;
+  top:12px;
+
+  width:30px;
+  height:30px;
+
+  border-radius:50%;
+
+  border:1px solid var(--border);
+
+  background:#20252b;
+
+  color:white;
+
+  cursor:pointer;
+}
+
+.modal-tag{
+  font-family:'Orbitron',sans-serif;
+
+  color:var(--accent);
+
+  font-size:.55rem;
+
+  margin-bottom:7px;
+}
+
+.modal-title{
+  font-size:1.3rem;
+
+  font-weight:700;
+
+  margin-bottom:7px;
+}
+
+.modal-body{
+  color:#aab4be;
+
+  font-size:.82rem;
+
+  line-height:1.5;
+}
+
+.bottom-spacer{
+  height:30px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:420px){
+
+  .schedule-grid{
+    gap:7px;
+  }
+
+  .schedule-day{
+    font-size:.55rem;
+  }
+
+  .schedule-count{
+    font-size:.5rem;
+  }
+
+  .lesson-name{
+    font-size:.7rem;
+  }
+
+  .lesson-number{
+    width:26px;
+  }
+
+  .session-card{
+    height:190px;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="wrap">
+
+<!-- =====================================================
+     TOP BAR
+===================================================== -->
+
+<div class="topbar">
+
+  <div class="topbar-left">
+
+    <div class="logo-circle">
+
+      <img
+        src="https://files.catbox.moe/7k9te6.jpeg"
+        alt="Logo"
+      >
+
+    </div>
+
+    <div class="topbar-text">
+
+      <div class="welcome">
+        CLASS
+      </div>
+
+      <div class="username">
+        KELAS IX-C
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =====================================================
+     HERO PHOTO
+===================================================== -->
+
+<div class="hero-section">
+
+  <div class="session-card">
+
+    <div class="session-bg-img"></div>
+
+  </div>
+
+</div>
+
+
+<!-- =====================================================
+     PENGURUS
+===================================================== -->
+
+<div class="info-strip">
+
+  <div class="info-row">
+    <span class="info-lbl">Wali Kelas</span>
+    <span class="info-val">Rini Latifah S.Pd</span>
+  </div>
+ 
+  <div class="info-row">
+    <span class="info-lbl">KM</span>
+    <span class="info-val">Daffa</span>
+  </div>
+
+  <div class="info-row">
+    <span class="info-lbl">Wakil KM</span>
+    <span class="info-val">Azzam</span>
+  </div>
+
+  <div class="info-row">
+    <span class="info-lbl">Sekretaris</span>
+    <span class="info-val">Nadia</span>
+  </div>
+
+  <div class="info-row">
+    <span class="info-lbl">Bendahara</span>
+    <span class="info-val">Teuing te nyaho</span>
+  </div>
+
+</div>
+
+
+<!-- =====================================================
+     JADWAL & TUGAS
+===================================================== -->
+
+<div class="sec-header">
+
+  <div class="sec-bar"></div>
+
+  <div class="sec-title">
+    Jadwal & Tugas
+  </div>
+
+</div>
+
+
+<div class="accordion-wrap">
+
+
+<!-- =====================================================
+     ACCORDION JADWAL
+===================================================== -->
+
+<div class="accordion" id="scheduleAccordion">
+
+  <button
+    class="accordion-header"
+    onclick="toggleAccordion('scheduleAccordion')"
+  >
+
+    <div class="accordion-left">
+
+      <div class="accordion-icon">
+        ◷
+      </div>
+
+      <div>
+
+        <div class="accordion-title">
+          JADWAL PELAJARAN
+        </div>
+
+        <div class="accordion-desc">
+          Senin sampai Jumat
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="accordion-arrow">
+      ▼
+    </div>
+
+  </button>
+
+
+  <div class="accordion-body">
+
+    <div class="schedule-grid">
+
+
+    <!-- SENIN --><div class="schedule-card">  <div class="schedule-title"><span class="schedule-day">
+  SENIN
+</span>
+
+<span class="schedule-count">
+  4 PELAJARAN
+</span>
+
+  </div>  <div class="lesson">
+    <span class="lesson-number">01</span>
+    <span class="lesson-name">Pendidikan Pancasila</span>
+  </div>  <div class="lesson">
+    <span class="lesson-number">02</span>
+    <span class="lesson-name">Prakarya</span>
+  </div>  <div class="lesson">
+    <span class="lesson-number">03</span>
+    <span class="lesson-name">PJOK</span>
+  </div>  <div class="lesson">
+    <span class="lesson-number">04</span>
+    <span class="lesson-name">IPA Terpadu</span>
+  </div></div><!-- SELASA --><div class="schedule-card">  <div class="schedule-title"><span class="schedule-day">
+  SELASA
+</span>
+
+<span class="schedule-count">
+  5 PELAJARAN
+</span>
+
+  </div>  <div class="lesson">
+    <span class="lesson-number">01</span>
+    <span class="lesson-name">BP/BK</span>
+  </div>  <div class="lesson">
+    <span class="lesson-number">02</span>
+    <span class="lesson-name">IPS Terpadu</span>
+  </div>  <div class="lesson">
+    <span class="lesson-number">03</span>
+    <span class="lesson-name">B.Sunda</span>
+  </div>  <div class="lesson">
+    <span class="lesson-number">04</span>
+    <span class="lesson-name">PAIBP</span>
+  </div>  <div class="lesson">
+    <span class="lesson-number">05</span>
+    <span class="lesson-name">B.Inggris</span>
+  </div></div><!-- RABU --><div class="schedule-card">  <div class="schedule-title"><span class="schedule-day">
+  RABU
+</span>
+
+<span class="schedule-count">
+  4 PELAJARAN
+</span>
+
+  </div>  <div class="lesson">
+    <span class="lesson-number">01</span>
+    <span class="lesson-name">B.Inggris</span>
+  </div>  <div class="lesson">
+    <span class="lesson-number">02</span>
+    <span class="lesson-name">B.Indonesia</span>
+  </div>  <div class="lesson">
+    <span class="lesson-number">03</span>
+    <span class="lesson-name">Pendidikan Pancasila</span>
+  </div>  <div class="lesson">
+    <span class="lesson-number">04</span>
+    <span class="lesson-name">Matematika</span>
+  </div></div><!-- KAMIS --><div class="schedule-card">  <div class="schedule-title"><span class="schedule-day">
+  KAMIS
+</span>
+
+<span class="schedule-count">
+  5 PELAJARAN
+</span>
+
+  </div>  <div class="lesson">
+    <span class="lesson-number">01</span>
+    <span class="lesson-name">IPS Terpadu</span>
+  </div>  <div class="lesson">
+    <span class="lesson-number">02</span>
+    <span class="lesson-name">Matematika</span>
+  </div>  <div class="lesson">
+    <span class="lesson-number">03</span>
+    <span class="lesson-name">B.Indonesia</span>
+  </div>  <div class="lesson">
+    <span class="lesson-number">04</span>
+    <span class="lesson-name">IPA Terpadu</span>
+  </div>  <div class="lesson">
+    <span class="lesson-number">05</span>
+    <span class="lesson-name">Mengaji</span>
+  </div></div><!-- JUMAT --><div class="schedule-card friday">  <div class="schedule-title"><span class="schedule-day">
+  JUMAT
+</span>
+
+<span class="schedule-count">
+  2 PELAJARAN
+</span>
+
+  </div>  <div class="lesson">
+    <span class="lesson-number">01</span>
+    <span class="lesson-name">B.Indonesia</span>
+  </div>  <div class="lesson">
+    <span class="lesson-number">02</span>
+    <span class="lesson-name">Informatika</span>
+  </div></div>
+
+  </div>
+  </div>
+
+
+<!-- =====================================================
+     ACCORDION TUGAS
+===================================================== -->
+
+<div class="accordion" id="taskAccordion">
+
+  <button
+    class="accordion-header"
+    onclick="toggleAccordion('taskAccordion')"
+  >
+
+    <div class="accordion-left">
+
+      <div class="accordion-icon">
+        ✓
+      </div>
+
+      <div>
+
+        <div class="accordion-title">
+          TUGAS
+        </div>
+
+        <div class="accordion-desc">
+          Tugas dan deadline
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="accordion-arrow">
+      ▼
+    </div>
+
+  </button>
+
+
+  <div class="accordion-body">
+
+
+    <div class="task-tools">
+
+      <button
+        class="btn"
+        onclick="toggleTaskForm()"
+      >
+        + TAMBAH TUGAS
+      </button>
+
+    </div>
+
+
+    <!-- FORM TAMBAH TUGAS -->
+
+    <div class="task-form" id="taskForm">
+
+  <select id="taskSubject">
+    <option value="">Pilih Pelajaran</option>
+
+    <!--
+      URL FOTO SUDAH DISIMPAN DI SINI.
+      Tinggal ubah URL-nya nanti.
+    -->
+    <option value="Matematika"
+      data-img="https://via.placeholder.com/300x180?text=Matematika">
+      Matematika
+    </option>
+
+    <option value="Bahasa Indonesia"
+      data-img="https://via.placeholder.com/300x180?text=Bahasa+Indonesia">
+      Bahasa Indonesia
+    </option>
+
+    <option value="Bahasa Inggris"
+      data-img="https://via.placeholder.com/300x180?text=Bahasa+Inggris">
+      Bahasa Inggris
+    </option>
+
+    <option value="IPA"
+      data-img="https://via.placeholder.com/300x180?text=IPA">
+      IPA
+    </option>
+
+    <option value="IPS"
+      data-img="https://via.placeholder.com/300x180?text=IPS">
+      IPS
+    </option>
+
+    <option value="PPKn"
+      data-img="https://via.placeholder.com/300x180?text=PPKn">
+      PPKn
+    </option>
+
+    <option value="PJOK"
+      data-img="https://via.placeholder.com/300x180?text=PJOK">
+      PJOK
+    </option>
+
+    <option value="Seni Budaya"
+      data-img="https://via.placeholder.com/300x180?text=Seni+Budaya">
+      Seni Budaya
+    </option>
+
+    <option value="Informatika"
+      data-img="https://via.placeholder.com/300x180?text=Informatika">
+      Informatika
+    </option>
+
+    <option value="Prakarya"
+      data-img="https://via.placeholder.com/300x180?text=Prakarya">
+      Prakarya
+    </option>
+
+  </select>
+
+  <input
+    type="text"
+    id="taskName"
+    placeholder="Nama Tugas"
+    autocomplete="off"
+  >
+
+  <textarea
+    id="taskWork"
+    placeholder="Yang Dikerjakan"
+    rows="3"
+  ></textarea>
+
+  <input
+    type="text"
+    id="taskDate"
+    placeholder="Hari Dikumpulkan"
+    autocomplete="off"
+  >
+
+  <button type="button" onclick="addTask()" class="btn-glass">
+    + TAMBAH TUGAS
+  </button>
+
+</div>
+
+<div id="taskList"></div>
+
+<div id="taskEmpty" class="babu-empty">
+  <div class="bt">Belum Ada Tugas</div>
+</div>
+
+  </div>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     MUSIC
+===================================================== -->
+
+<div class="music-widget">
+
+  <img
+    src="https://files.catbox.moe/ryz82b.jpg"
+    class="music-thumb"
+    alt="Cover"
+  >
+
+  <div>
+
+    <div class="music-name">
+      Kicau Mania X Preman Pensiun
+    </div>
+
+    <div
+      class="music-control"
+      id="music-ctrl"
+      onclick="toggleMusic()"
+    >
+      ▶ PLAY MUSIC
+    </div>
+
+    <audio
+      id="audio"
+      loop
+    >
+
+      <source
+        src="https://files.catbox.moe/rv9xl4.mp3"
+        type="audio/mpeg"
+      >
+
+    </audio>
+
+  </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     ACCESS
+===================================================== -->
+
+<div class="sec-header">
+
+  <div class="sec-bar"></div>
+
+  <div class="sec-title">
+    Access
+  </div>
+
+</div>
+
+
+<div class="tab-nav">
+
+  <button
+    class="tab-btn active"
+    onclick="switchTab('murid',this)"
+  >
+    MURID
+  </button>
+
+  <button
+    class="tab-btn"
+    onclick="switchTab('galeri',this)"
+  >
+    GALERI
+  </button>
+
+  <!-- List Babu sengaja tidak ditampilkan -->
+
+</div>
+
+
+<div class="tab-panels">
+
+
+<!-- =====================================================
+     MURID
+===================================================== -->
+
+<div
+  class="tab-panel active"
+  id="tab-murid"
+>
+
+  <div class="member-cat">
+    MURID
+  </div>
+
+  <div class="member-grid">
+
+
+    <!--
+      FOTO MURID TERSEMBUNYI.
+
+      Kalau mau menggunakan foto:
+
+      1. Ubah:
+         display:none;
+
+         menjadi:
+         display:block;
+
+      2. Ganti GANTI_URL dengan URL foto.
+    -->
+
+
+    <div class="mc">
+
+      <img
+        class="mc-photo"
+        src="GANTI_URL_FOTO_MURID_1"
+        alt="Murid 1"
+      >
+
+      <div class="mc-name">
+        Murid 1
+      </div>
+
+    </div>
+
+
+    <div class="mc">
+
+      <img
+        class="mc-photo"
+        src="GANTI_URL_FOTO_MURID_2"
+        alt="Murid 2"
+      >
+
+      <div class="mc-name">
+        Murid 2
+      </div>
+
+    </div>
+
+
+    <div class="mc">
+
+      <img
+        class="mc-photo"
+        src="GANTI_URL_FOTO_MURID_3"
+        alt="Murid 3"
+      >
+
+      <div class="mc-name">
+        Murid 3
+      </div>
+
+    </div>
+
+
+    <div class="mc">
+
+      <img
+        class="mc-photo"
+        src="GANTI_URL_FOTO_MURID_4"
+        alt="Murid 4"
+      >
+
+      <div class="mc-name">
+        Murid 4
+      </div>
+
+    </div>
+
+
+    <div class="mc">
+
+      <img
+        class="mc-photo"
+        src="GANTI_URL_FOTO_MURID_5"
+        alt="Murid 5"
+      >
+
+      <div class="mc-name">
+        Murid 5
+      </div>
+
+    </div>
+
+
+    <div class="mc">
+
+      <img
+        class="mc-photo"
+        src="GANTI_URL_FOTO_MURID_6"
+        alt="Murid 6"
+      >
+
+      <div class="mc-name">
+        Murid 6
+      </div>
+
+    </div>
+
+
+    <div class="mc">
+
+      <img
+        class="mc-photo"
+        src="GANTI_URL_FOTO_MURID_7"
+        alt="Murid 7"
+      >
+
+      <div class="mc-name">
+        Murid 7
+      </div>
+
+    </div>
+
+
+    <div class="mc">
+
+      <img
+        class="mc-photo"
+        src="GANTI_URL_FOTO_MURID_8"
+        alt="Murid 8"
+      >
+
+      <div class="mc-name">
+        Murid 8
+      </div>
+
+    </div>
+
+
+  </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     GALERI
+===================================================== -->
+
+<div
+  class="tab-panel"
+  id="tab-galeri"
+>
+
+  <div class="gallery-grid">
+
+
+    <div class="gallery-item">
+
+      <img
+        src="GANTI_URL_FOTO_KENANGAN_1"
+        alt="Kenangan 1"
+      >
+
+    </div>
+
+
+    <div class="gallery-item">
+
+      <img
+        src="GANTI_URL_FOTO_KENANGAN_2"
+        alt="Kenangan 2"
+      >
+
+    </div>
+
+
+    <div class="gallery-item">
+
+      <img
+        src="GANTI_URL_FOTO_KENANGAN_3"
+        alt="Kenangan 3"
+      >
+
+    </div>
+
+
+    <div class="gallery-item">
+
+      <img
+        src="GANTI_URL_FOTO_KENANGAN_4"
+        alt="Kenangan 4"
+      >
+
+    </div>
+
+
+  </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     BABU
+     HIDDEN
+===================================================== -->
+
+<div
+  class="tab-panel"
+  id="tab-babu"
+>
+
+  <div id="babuList"></div>
+
+</div>
+
+
+</div>
+
+
+<div class="bottom-spacer"></div>
+
+
+
+<!-- =====================================================
+     MODAL
+===================================================== -->
+
+<div
+  class="modal-overlay"
+  id="modal"
+  onclick="closeModal(event)"
+>
+
+  <div class="modal-box">
+
+    <button
+      class="modal-close"
+      onclick="closeModal()"
+    >
+      ✕
+    </button>
+
+    <div
+      class="modal-tag"
+      id="mtag"
+    ></div>
+
+    <div
+      class="modal-title"
+      id="mtitle"
+    ></div>
+
+    <div
+      class="modal-body"
+      id="mbody"
+    ></div>
+
+  </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     FIREBASE
+===================================================== -->
+
+<script type="module">
+
+import {
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+
+import {
+  getDatabase,
+  ref,
+  push,
+  onValue,
+  remove
+} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js";
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBRsEBKTY84gsqDKnhONJs9LIjwykQPnPE",
+  authDomain: "snowdeath-1.firebaseapp.com",
+  databaseURL: "https://snowdeath-1-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "snowdeath-1",
+  storageBucket: "snowdeath-1.firebasestorage.app",
+  messagingSenderId: "508793524431",
+  appId: "1:508793524431:web:f4493376aa1b96045727ba"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+const tasksRef = ref(db, 'tasks');
+
+
+// TAMBAH TUGAS
+window.addTask = function () {
+
+  const subjectSelect = document.getElementById('taskSubject');
+  const taskName = document.getElementById('taskName').value.trim();
+  const taskWork = document.getElementById('taskWork').value.trim();
+  const taskDate = document.getElementById('taskDate').value.trim();
+
+  const selectedOption = subjectSelect.options[subjectSelect.selectedIndex];
+  const subject = subjectSelect.value;
+  const image = selectedOption ? selectedOption.dataset.img : '';
+
+  if (!subject) { alert('Pilih pelajaran terlebih dahulu.'); return; }
+  if (!taskName) { alert('Nama tugas belum diisi.'); return; }
+  if (!taskWork) { alert('Bagian "Yang Dikerjakan" belum diisi.'); return; }
+  if (!taskDate) { alert('Hari dikumpulkan belum diisi.'); return; }
+
+  push(tasksRef, {
+    subject: subject,
+    image: image,
+    name: taskName,
+    work: taskWork,
+    date: taskDate,
+    createdAt: Date.now()
+  })
+  .then(() => {
+    subjectSelect.value = '';
+    document.getElementById('taskName').value = '';
+    document.getElementById('taskWork').value = '';
+    document.getElementById('taskDate').value = '';
+
+    const taskForm = document.getElementById('taskForm');
+    if (taskForm) taskForm.classList.remove('show');
+  })
+  .catch((error) => {
+    console.error(error);
+    alert('Gagal menambahkan tugas.');
+  });
+};
+
+
+// HAPUS TUGAS
+window.deleteTask = function (key) {
+  if (!confirm('Hapus tugas ini?')) return;
+
+  remove(ref(db, 'tasks/' + key))
+    .catch((error) => {
+      console.error(error);
+      alert('Gagal menghapus tugas.');
+    });
+};
+
+
+// REALTIME TUGAS
+onValue(tasksRef, (snapshot) => {
+
+  const data = snapshot.val();
+  const list = document.getElementById('taskList');
+  const empty = document.getElementById('taskEmpty');
+
+  if (!list) return;
+
+  list.innerHTML = '';
+
+  if (!data) {
+    if (empty) empty.style.display = 'block';
+    return;
+  }
+
+  if (empty) empty.style.display = 'none';
+
+  Object.entries(data).reverse().forEach(([key, task]) => {
+
+    const card = document.createElement('div');
+    card.className = 'task-card';
+
+    card.innerHTML = `
+      <img
+        class="task-photo"
+        src="${task.image || ''}"
+        alt="${task.subject}"
+        onerror="this.style.display='none'"
+      >
+      <div class="task-content">
+        <div class="task-subject">${escapeTaskHTML(task.subject)}</div>
+        <div class="task-name">${escapeTaskHTML(task.name)}</div>
+        <div class="task-work">${escapeTaskHTML(task.work)}</div>
+        <div class="task-date">DIKUMPULKAN: ${escapeTaskHTML(task.date)}</div>
+        <button class="task-delete" onclick="deleteTask('${key}')">HAPUS TUGAS</button>
+      </div>
+    `;
+
+    list.appendChild(card);
+  });
+
+});
+
+
+// MENCEGAH HTML INJECTION
+function escapeTaskHTML(text) {
+  if (!text) return '';
+  return String(text)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+
+/* =========================================
+   BABU - TETAP ADA UNTUK NANTI
+========================================= */
+
+const babuRef = ref(db, "babuList");
+
+window.addBabu = function () {
+  const name = prompt("Masukkan nama babu:");
+  if (name) push(babuRef, { name: name });
+};
+
+window.deleteBabu = function (key) {
+  if (confirm("Hapus babu ini?")) {
+    remove(ref(db, "babuList/" + key));
+  }
+};
+
+</script>
+
+<!-- =====================================================
+     NORMAL JAVASCRIPT
+===================================================== -->
+
+<script>
+
+/* =========================================
+   ACCORDION
+========================================= */
+
+function toggleAccordion(id){
+
+  const element =
+    document.getElementById(id);
+
+  element.classList.toggle("open");
+
+}
+
+
+
+/* =========================================
+   TASK FORM
+========================================= */
+
+function toggleTaskForm(){
+
+  document
+    .getElementById("taskForm")
+    .classList.toggle("show");
+
+}
+
+
+
+/* =========================================
+   MUSIC
+========================================= */
+
+function toggleMusic(){
+
+  const audio =
+    document.getElementById("audio");
+
+  const ctrl =
+    document.getElementById("music-ctrl");
+
+
+  if(audio.paused){
+
+    audio.play();
+
+    ctrl.textContent =
+      "❚❚ PAUSE MUSIC";
+
+  }else{
+
+    audio.pause();
+
+    ctrl.textContent =
+      "▶ PLAY MUSIC";
+
+  }
+
+}
+
+
+
+/* =========================================
+   TABS
+========================================= */
+
+function switchTab(id,btn){
+
+  document
+    .querySelectorAll(".tab-panel")
+    .forEach(panel=>{
+
+      panel.classList.remove("active");
+
+    });
+
+
+  document
+    .querySelectorAll(".tab-btn")
+    .forEach(button=>{
+
+      button.classList.remove("active");
+
+    });
+
+
+  document
+    .getElementById("tab-"+id)
+    .classList.add("active");
+
+
+  btn.classList.add("active");
+
+}
+
+
+
+/* =========================================
+   MODAL
+========================================= */
+
+function openModal(
+  tag,
+  title,
+  body
+){
+
+  document
+    .getElementById("mtag")
+    .textContent = tag;
+
+  document
+    .getElementById("mtitle")
+    .textContent = title;
+
+  document
+    .getElementById("mbody")
+    .textContent = body;
+
+  document
+    .getElementById("modal")
+    .classList.add("show");
+
+}
+
+
+function closeModal(e){
+
+  const modal =
+    document.getElementById("modal");
+
+
+  if(
+    !e ||
+    e.target === modal
+  ){
+
+    modal.classList.remove("show");
+
+  }
+
+}
+
+</script>
+
+</body>
+</html>
