@@ -5,35 +5,36 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IX-C - Pameungpeuk 2</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --bg:#08090b;
-  --bg2:#0d0f12;
-  --card:#15181d;
-  --card2:#191d23;
-  --border:#292e36;
-  --border2:#343b45;
-  --accent:#62c9ff;
-  --accent2:#91ddff;
-  --accent3:#ffffff;
-  --red:#0098e6;
-  --white:#edf4f8;
-  --muted:#7d8793;
-  --radius:18px;
+  --bg:#FFDE59;
+  --bg2:#FFF3C4;
+  --card:#FFFFFF;
+  --card2:#FFF3C4;
+  --ink:#111111;
+  --border:#111111;
+  --border2:#111111;
+  --accent:#2F5BEA;
+  --accent2:#FF4B3E;
+  --accent3:#111111;
+  --red:#FF4B3E;
+  --white:#111111;
+  --muted:#4a463c;
+  --radius:14px;
+  --shadow-sm:3px 3px 0 var(--ink);
+  --shadow-md:5px 5px 0 var(--ink);
+  --shadow-lg:8px 8px 0 var(--ink);
   --fs-base:clamp(13px,3.4vw,16px);
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  background:
-    radial-gradient(circle at 10% 0%,#151a20 0%,transparent 35%),
-    radial-gradient(circle at 100% 100%,#11151a 0%,transparent 40%),
-    var(--bg);
-  color:var(--white);
-  font-family:'Rajdhani',Arial,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Space Grotesk',Arial,sans-serif;
   font-size:var(--fs-base);
   min-height:100vh;
   overflow-x:hidden;
@@ -45,27 +46,27 @@ img{max-width:100%}
 
 .topbar{
   display:flex;align-items:center;padding:16px 18px;
-  border-bottom:1px solid var(--border);background:#090b0e;
+  border-bottom:3px solid var(--border);background:var(--card);
   position:sticky;top:0;z-index:100;margin:0 clamp(-8px,-2vw,-16px);
 }
 .topbar-left{display:flex;align-items:center;gap:12px}
 .logo-circle{
-  width:44px;height:44px;border-radius:50%;border:1px solid var(--border2);
-  overflow:hidden;flex-shrink:0;background:#11151a;
+  width:46px;height:46px;border-radius:10px;border:3px solid var(--border);
+  overflow:hidden;flex-shrink:0;background:var(--accent);box-shadow:var(--shadow-sm);
 }
 .logo-circle img{width:100%;height:100%;object-fit:cover}
 .topbar-text .welcome{
-  font-family:'Orbitron',sans-serif;font-size:.48rem;letter-spacing:.2em;color:var(--muted)
+  font-family:'Space Grotesk',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.2em;color:var(--accent2)
 }
 .topbar-text .username{
-  font-family:'Orbitron',sans-serif;font-size:clamp(.85rem,4vw,.95rem);
-  font-weight:700;letter-spacing:.06em
+  font-family:'Archivo Black',sans-serif;font-size:clamp(1rem,4.5vw,1.15rem);
+  font-weight:400;letter-spacing:.01em
 }
 
 .hero-section{padding:18px 0 0}
 .session-card{
-  position:relative;aspect-ratio:16/9;height:auto;border-radius:22px;overflow:hidden;
-  border:1px solid var(--border2);background:#101419;box-shadow:0 8px 25px rgba(0,0,0,.35)
+  position:relative;aspect-ratio:16/9;height:auto;border-radius:var(--radius);overflow:hidden;
+  border:3px solid var(--border);background:var(--card);box-shadow:var(--shadow-lg)
 }
 .session-bg-img{
   position:absolute;inset:0;background-image:url('https://files.catbox.moe/jkob60.jpg');
@@ -73,81 +74,81 @@ img{max-width:100%}
 }
 .session-bg-overlay,.session-bg-ice,.session-content{display:none}
 
-.info-strip{margin:14px 0 0;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
-.info-row{display:flex;justify-content:space-between;align-items:center;padding:12px 15px;border-bottom:1px solid var(--border)}
+.info-strip{margin:14px 0 0;background:var(--card);border:3px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-md)}
+.info-row{display:flex;justify-content:space-between;align-items:center;padding:12px 15px;border-bottom:2px solid var(--border)}
 .info-row:last-child{border-bottom:none}
 .info-lbl,.info-lbl2{
-  font-family:'Orbitron',sans-serif;font-size:.52rem;letter-spacing:.15em;text-transform:uppercase
+  font-family:'Space Grotesk',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.05em
 }
-.info-lbl{color:var(--accent)} .info-lbl2{color:var(--accent3)}
-.info-val,.info-val2{font-size:.9rem;font-weight:700}.info-val{color:var(--white)}.info-val2{color:var(--red)}
+.info-lbl{color:var(--accent)} .info-lbl2{color:var(--accent2)}
+.info-val,.info-val2{font-size:.9rem;font-weight:700}.info-val{color:var(--ink)}.info-val2{color:var(--accent2)}
 
 .sec-header{display:flex;align-items:center;gap:10px;padding:25px 0 12px}
-.sec-bar{width:4px;height:21px;border-radius:2px;background:var(--accent2)}
+.sec-bar{width:10px;height:24px;border-radius:3px;background:var(--accent2);border:2px solid var(--border)}
 .sec-title{
-  font-family:'Orbitron',sans-serif;font-size:clamp(.68rem,3.2vw,.75rem);
-  font-weight:700;letter-spacing:.18em;text-transform:uppercase
+  font-family:'Archivo Black',sans-serif;font-size:clamp(.95rem,4vw,1.1rem);
+  font-weight:400;letter-spacing:.01em
 }
 
 .accordion-wrap{padding:0}
-.accordion{border:1px solid var(--border);background:var(--card);border-radius:16px;overflow:hidden;margin-bottom:10px}
+.accordion{border:3px solid var(--border);background:var(--card);border-radius:var(--radius);overflow:hidden;margin-bottom:12px;box-shadow:var(--shadow-md)}
 .accordion-header{
-  width:100%;border:0;background:none;color:var(--white);padding:16px;
+  width:100%;border:0;background:none;color:var(--ink);padding:16px;
   display:flex;align-items:center;justify-content:space-between;cursor:pointer;text-align:left
 }
 .accordion-left{display:flex;align-items:center;gap:12px}
 .accordion-icon{
-  width:36px;height:36px;border-radius:10px;background:#20252c;
-  display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:1rem
+  width:38px;height:38px;border-radius:9px;background:var(--accent);border:2px solid var(--border);
+  display:flex;align-items:center;justify-content:center;color:#fff;font-size:1rem
 }
-.accordion-title{font-family:'Orbitron',sans-serif;font-size:clamp(.66rem,3vw,.72rem);letter-spacing:.1em}
+.accordion-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(.78rem,3.2vw,.85rem);letter-spacing:.03em}
 .accordion-desc{margin-top:3px;color:var(--muted);font-size:.72rem}
-.accordion-arrow{color:var(--muted);font-size:1.1rem;transition:transform .2s}
+.accordion-arrow{color:var(--ink);font-size:1.2rem;font-weight:700;transition:transform .2s}
 .accordion.open .accordion-arrow{transform:rotate(180deg)}
 .accordion-body{display:none;padding:0 12px 12px}
 .accordion.open .accordion-body{display:block}
 
-.schedule-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
-.schedule-card{background:#101317;border:1px solid var(--border);border-radius:13px;overflow:hidden}
-.schedule-title{display:flex;justify-content:space-between;align-items:center;padding:11px;border-bottom:1px solid var(--border);background:#181c21}
-.schedule-day{font-family:'Orbitron',sans-serif;font-size:.62rem;color:var(--white);letter-spacing:.08em}
-.schedule-count{font-size:.58rem;color:var(--accent)}
-.lesson{display:flex;align-items:center;min-height:32px;border-bottom:1px solid #20242a}
+.schedule-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.schedule-card{background:var(--card);border:2px solid var(--border);border-radius:11px;overflow:hidden}
+.schedule-title{display:flex;justify-content:space-between;align-items:center;padding:11px;border-bottom:2px solid var(--border);background:var(--ink)}
+.schedule-day{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.65rem;color:#fff;letter-spacing:.08em}
+.schedule-count{font-size:.58rem;color:var(--bg)}
+.lesson{display:flex;align-items:center;min-height:32px;border-bottom:1px solid #e4dfc9}
 .lesson:last-child{border-bottom:none}
-.lesson-number{width:30px;text-align:center;color:var(--accent);font-family:'Orbitron',sans-serif;font-size:.55rem}
-.lesson-name{flex:1;padding:7px 6px;font-size:.76rem;color:#dbe2e8}
+.lesson-number{width:30px;text-align:center;color:#fff;background:var(--accent2);font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.55rem}
+.lesson-name{flex:1;padding:7px 8px;font-size:.78rem;font-weight:600;color:var(--ink)}
 .schedule-card.friday{grid-column:1/-1}
 
 .task-tools{display:flex;gap:8px;margin-bottom:10px}
 .btn{
-  border:1px solid var(--border2);background:#1b2026;color:var(--accent);
-  padding:10px 13px;border-radius:11px;cursor:pointer;font-family:'Orbitron',sans-serif;
-  font-size:.55rem;letter-spacing:.08em
+  border:2px solid var(--border);background:var(--accent);color:#fff;
+  padding:11px 14px;border-radius:10px;cursor:pointer;font-family:'Space Grotesk',sans-serif;
+  font-weight:700;font-size:.7rem;letter-spacing:.04em;box-shadow:var(--shadow-sm);transition:transform .08s,box-shadow .08s
 }
-.btn:active{transform:scale(.98)}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
 
 .empty,.babu-empty{
-  text-align:center;padding:25px 10px;border:1px dashed var(--border2);
-  border-radius:13px;color:var(--muted);font-size:.78rem
+  text-align:center;padding:25px 10px;border:2px dashed var(--border);
+  border-radius:13px;color:var(--muted);font-size:.78rem;font-weight:600
 }
 
 /* =========================
    MUSIC PLAYER
 ========================= */
 .music-widget{
-  margin:20px 0;padding:12px;background:var(--card2);border:1px solid var(--border);
-  border-radius:var(--radius);display:flex;align-items:center;gap:13px
+  margin:20px 0;padding:14px;background:var(--card2);border:3px solid var(--border);
+  border-radius:var(--radius);display:flex;align-items:center;gap:13px;box-shadow:var(--shadow-md)
 }
 .music-thumb{
-  width:50px;height:50px;border-radius:10px;object-fit:cover;flex-shrink:0;display:none
+  width:52px;height:52px;border-radius:9px;object-fit:cover;flex-shrink:0;display:none;border:2px solid var(--border)
 }
-.music-name{font-size:.8rem;font-weight:700}
-.music-actions{display:flex;align-items:center;gap:10px;margin-top:5px}
+.music-name{font-size:.85rem;font-weight:700}
+.music-actions{display:flex;align-items:center;gap:8px;margin-top:7px}
 .music-control{
-  appearance:none;-webkit-appearance:none;border:0;background:none;color:var(--accent);
-  display:inline-flex;align-items:center;justify-content:center;gap:5px;
-  padding:0;margin:0;cursor:pointer;white-space:nowrap;
-  font-family:'Rajdhani',Arial,sans-serif;
+  appearance:none;-webkit-appearance:none;border:2px solid var(--border);background:#fff;color:var(--ink);
+  display:inline-flex;align-items:center;justify-content:center;gap:5px;border-radius:8px;
+  padding:6px 10px;margin:0;cursor:pointer;white-space:nowrap;box-shadow:2px 2px 0 var(--ink);
+  font-family:'Space Grotesk',Arial,sans-serif;
   font-size:10px;font-weight:700;line-height:1;letter-spacing:.35px;
   -webkit-tap-highlight-color:transparent
 }
@@ -159,73 +160,67 @@ img{max-width:100%}
   display:inline-block;font-family:'Rajdhani',Arial,sans-serif;
   font-size:10px;font-weight:700;line-height:1;letter-spacing:.35px
 }
-.music-control:active{transform:scale(.94)}
-.music-control:focus-visible{outline:1px solid var(--accent);outline-offset:4px;border-radius:4px}
+.music-control:active{transform:translate(2px,2px);box-shadow:0 0 0 var(--ink)}
+.music-control:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
 
-.tab-nav{display:flex;gap:8px;padding:0;margin-bottom:14px;overflow-x:auto;scrollbar-width:none}
-.tab-nav::-webkit-scrollbar{display:none}
-.tab-btn{
-  flex:0 0 auto;padding:9px 16px;border:1px solid var(--border);background:#111419;color:var(--muted);
-  border-radius:20px;font-family:'Orbitron',sans-serif;font-size:.55rem;letter-spacing:.1em;cursor:pointer
+.gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.gallery-item{
+  border-radius:12px;overflow:hidden;border:3px solid var(--border);background:var(--card);
+  box-shadow:var(--shadow-sm);cursor:pointer;transition:transform .1s,box-shadow .1s;position:relative
 }
-.tab-btn.active{border-color:var(--accent);color:var(--accent);background:#15232c}
-.tab-panels{padding:0;min-height:200px}
-.tab-panel{display:none}.tab-panel.active{display:block}
-
-.member-cat{
-  display:flex;align-items:center;gap:10px;color:var(--accent2);font-family:'Orbitron',sans-serif;
-  font-size:.65rem;letter-spacing:.12em;margin-bottom:10px
-}
-.member-cat:before,.member-cat:after{content:'';flex:1;height:1px;background:var(--border)}
-.member-grid{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:18px}
-.mc{width:clamp(70px,20vw,90px);background:var(--card);border:1px solid var(--border);border-radius:11px;overflow:hidden;text-align:center}
-.mc-photo{display:none;width:100%;aspect-ratio:1/1;height:auto;object-fit:cover}
-.mc-name{padding:9px 5px;font-size:.8rem;font-weight:700}
-
-.gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
-.gallery-item{border-radius:12px;overflow:hidden;border:1px solid var(--border);background:#11151a}
+.gallery-item:hover,.gallery-item:focus-visible{transform:translate(-2px,-2px);box-shadow:var(--shadow-md)}
+.gallery-item:active{transform:translate(1px,1px);box-shadow:1px 1px 0 var(--ink)}
 .gallery-item img{width:100%;aspect-ratio:4/3;height:auto;object-fit:cover;display:block}
+.gallery-item:after{
+  content:'⤢';position:absolute;top:6px;right:6px;width:24px;height:24px;border-radius:6px;
+  background:var(--accent2);color:#fff;border:2px solid var(--border);
+  display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700
+}
 
-.task-form{background:rgba(255,255,255,.035);border:1px solid var(--border);border-radius:18px;padding:14px;margin-bottom:16px}
-.task-form select,.task-form input,.task-form textarea{
-  width:100%;background:rgba(0,0,0,.35);color:var(--white);border:1px solid var(--border);
-  border-radius:11px;padding:11px 12px;margin-bottom:9px;font-family:'Rajdhani',sans-serif;font-size:.9rem;outline:none
+.lightbox-overlay{
+  position:fixed;inset:0;z-index:600;background:rgba(17,17,17,.85);display:none;
+  align-items:center;justify-content:center;padding:20px
 }
-.task-form select:focus,.task-form input:focus,.task-form textarea:focus{border-color:var(--accent)}
-.task-form textarea{resize:vertical;min-height:70px}.task-form option{background:#111;color:white}
+.lightbox-overlay.show{display:flex}
+.lightbox-box{width:100%;max-width:480px;background:var(--card);border:3px solid var(--border);border-radius:var(--radius);padding:10px;box-shadow:var(--shadow-lg);position:relative}
+.lightbox-box img{width:100%;height:auto;border-radius:8px;border:2px solid var(--border);display:block}
+.lightbox-caption{margin-top:10px;padding:0 4px;font-weight:700;font-size:.85rem}
+.lightbox-close{
+  position:absolute;right:-10px;top:-10px;width:34px;height:34px;border-radius:50%;
+  border:2px solid var(--border);background:var(--accent2);color:#fff;font-weight:700;cursor:pointer;box-shadow:2px 2px 0 var(--ink)
+}
+
 .task-form .btn-glass{width:100%;margin:3px 0 0}
-.task-card{overflow:hidden;background:rgba(255,255,255,.045);border:1px solid var(--border);border-radius:18px;margin-bottom:12px}
-.task-photo{width:100%;aspect-ratio:16/9;height:auto;object-fit:cover;display:block}
+.task-card{overflow:hidden;background:var(--card);border:3px solid var(--border);border-radius:var(--radius);margin-bottom:14px;box-shadow:var(--shadow-md)}
+.task-photo{width:100%;aspect-ratio:16/9;height:auto;object-fit:cover;display:block;border-bottom:3px solid var(--border)}
 .task-content{padding:14px}
-.task-subject{font-family:'Orbitron',sans-serif;font-size:.65rem;letter-spacing:.12em;color:var(--accent);margin-bottom:5px;text-transform:uppercase}
-.task-name{font-size:clamp(1rem,4.5vw,1.15rem);font-weight:700;color:var(--white);margin-bottom:7px}
-.task-work{font-size:.9rem;color:rgba(234,245,255,.72);line-height:1.45;white-space:pre-wrap}
-.task-date{margin-top:12px;padding-top:9px;border-top:1px solid var(--border);font-family:'Orbitron',sans-serif;font-size:.55rem;letter-spacing:.08em;color:var(--accent2)}
+.task-subject{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.68rem;letter-spacing:.08em;color:#fff;background:var(--accent);display:inline-block;padding:3px 9px;border-radius:6px;margin-bottom:8px}
+.task-name{font-size:clamp(1rem,4.5vw,1.15rem);font-weight:700;color:var(--ink);margin-bottom:7px}
+.task-work{font-size:.9rem;color:var(--muted);line-height:1.45;white-space:pre-wrap}
+.task-date{margin-top:12px;padding-top:9px;border-top:2px solid var(--border);font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.62rem;letter-spacing:.05em;color:var(--accent2)}
 .task-delete{
-  margin-top:12px;width:100%;padding:8px;border-radius:9px;background:rgba(255,60,60,.06);
-  border:1px solid rgba(255,70,70,.25);color:#ff7070;font-family:'Orbitron',sans-serif;font-size:.55rem;cursor:pointer
+  margin-top:12px;width:100%;padding:9px;border-radius:9px;background:#fff;
+  border:2px solid var(--accent2);color:var(--accent2);font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.62rem;letter-spacing:.05em;cursor:pointer
 }
-.task-delete:active{transform:scale(.98)}
-#tab-babu{display:none!important}
+.task-delete:active{transform:translate(1px,1px)}
 
 .modal-overlay{
-  position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.75);display:none;
+  position:fixed;inset:0;z-index:500;background:rgba(17,17,17,.75);display:none;
   align-items:center;justify-content:center;padding:20px
 }
 .modal-overlay.show{display:flex}
-.modal-box{width:100%;max-width:360px;background:#15191e;border:1px solid var(--border2);border-radius:17px;padding:20px;position:relative}
-.modal-close{position:absolute;right:12px;top:12px;width:30px;height:30px;border-radius:50%;border:1px solid var(--border);background:#20252b;color:white;cursor:pointer}
-.modal-tag{font-family:'Orbitron',sans-serif;color:var(--accent);font-size:.55rem;margin-bottom:7px}
+.modal-box{width:100%;max-width:360px;background:var(--card);border:3px solid var(--border);border-radius:var(--radius);padding:20px;position:relative;box-shadow:var(--shadow-lg)}
+.modal-close{position:absolute;right:-10px;top:-10px;width:32px;height:32px;border-radius:50%;border:2px solid var(--border);background:var(--accent2);color:#fff;font-weight:700;cursor:pointer;box-shadow:2px 2px 0 var(--ink)}
+.modal-tag{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--accent);font-size:.6rem;margin-bottom:7px}
 .modal-title{font-size:1.3rem;font-weight:700;margin-bottom:7px}
-.modal-body{color:#aab4be;font-size:.82rem;line-height:1.5}
+.modal-body{color:var(--muted);font-size:.82rem;line-height:1.5}
 .bottom-spacer{height:30px}
 
 @media(max-width:420px){
   .schedule-grid{gap:7px}
   .schedule-day{font-size:.55rem}.schedule-count{font-size:.5rem}
   .lesson-name{font-size:.7rem}.lesson-number{width:26px}
-  .mc{width:78px}.mc-name{font-size:.75rem;padding:8px 4px}
-  .accordion-title{font-size:.68rem}.task-name{font-size:1rem}.sec-title{font-size:.7rem}
+  .accordion-title{font-size:.72rem}.task-name{font-size:1rem}.sec-title{font-size:.85rem}
 }
 </style>
 </head>
@@ -329,29 +324,7 @@ img{max-width:100%}
 
   <div class="accordion-body">
     <div class="task-tools"></div>
-
-    <div class="task-form" id="taskForm">
-      <select id="taskSubject">
-        <option value="">Pilih Pelajaran</option>
-        <option value="Matematika" data-img="https://files.catbox.moe/nfqxr0.jpeg">Matematika</option>
-        <option value="Bahasa Indonesia" data-img="https://files.catbox.moe/glfln4.jpeg">Bahasa Indonesia</option>
-        <option value="Bahasa Inggris" data-img="https://files.catbox.moe/4115s4.jpeg">Bahasa Inggris</option>
-        <option value="IPA" data-img="https://via.placeholder.com/300x180?text=IPA">IPA</option>
-        <option value="IPS" data-img="https://via.placeholder.com/300x180?text=IPS">IPS</option>
-        <option value="PPKn" data-img="https://via.placeholder.com/300x180?text=PPKn">PPKn</option>
-        <option value="PJOK" data-img="https://via.placeholder.com/300x180?text=PJOK">PJOK</option>
-        <option value="Informatika" data-img="https://via.placeholder.com/300x180?text=Informatika">Informatika</option>
-        <option value="Prakarya" data-img="https://via.placeholder.com/300x180?text=Prakarya">Prakarya</option>
-      </select>
-
-      <input type="text" id="taskName" placeholder="Nama Tugas" autocomplete="off">
-      <textarea id="taskWork" placeholder="Yang Dikerjakan" rows="3"></textarea>
-      <input type="text" id="taskDate" placeholder="Hari Dikumpulkan" autocomplete="off">
-
-      <button type="button" onclick="addTask()" class="btn">+ TAMBAH TUGAS</button>
-    </div>
-
-    <div id="taskList"></div>
+<div id="taskList"></div>
     <div id="taskEmpty" class="babu-empty"><div class="bt">Belum Ada Tugas</div></div>
   </div>
 </div>
@@ -386,192 +359,23 @@ img{max-width:100%}
   </div>
 </div>
 
-<div class="sec-header"><div class="sec-bar"></div><div class="sec-title">Access</div></div>
+<div class="sec-header"><div class="sec-bar"></div><div class="sec-title">Galeri</div></div>
 
-<div class="tab-nav">
-  <button class="tab-btn active" onclick="switchTab('murid',this)">MURID</button>
-  <button class="tab-btn" onclick="switchTab('galeri',this)">GALERI</button>
+<div class="gallery-grid">
+  <div class="gallery-item" role="button" tabindex="0" onclick="openLightbox('https://files.catbox.moe/rris6z.jpg','Kenangan 1')" onkeydown="if(event.key==='Enter')openLightbox('https://files.catbox.moe/rris6z.jpg','Kenangan 1')"><img src="https://files.catbox.moe/rris6z.jpg" alt="Kenangan 1"></div>
+  <div class="gallery-item" role="button" tabindex="0" onclick="openLightbox('https://files.catbox.moe/c1sdji.jpg','Kenangan 2')" onkeydown="if(event.key==='Enter')openLightbox('https://files.catbox.moe/c1sdji.jpg','Kenangan 2')"><img src="https://files.catbox.moe/c1sdji.jpg" alt="Kenangan 2"></div>
+  <div class="gallery-item" role="button" tabindex="0" onclick="openLightbox('https://files.catbox.moe/1v68gr.jpg','Kenangan 3')" onkeydown="if(event.key==='Enter')openLightbox('https://files.catbox.moe/1v68gr.jpg','Kenangan 3')"><img src="https://files.catbox.moe/1v68gr.jpg" alt="Kenangan 3"></div>
+  <div class="gallery-item" role="button" tabindex="0" onclick="openLightbox('https://files.catbox.moe/0yxucj.jpg','Kenangan 4')" onkeydown="if(event.key==='Enter')openLightbox('https://files.catbox.moe/0yxucj.jpg','Kenangan 4')"><img src="https://files.catbox.moe/0yxucj.jpg" alt="Kenangan 4"></div>
 </div>
 
-<div class="tab-panels">
+<div id="babuList" style="display:none"></div>
 
-<div class="tab-panel active" id="tab-murid">
-  <div class="member-cat">MURID</div>
-  <div class="member-grid">
-    <div class="mc">
-      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_1" alt="Murid 1">
-      <div class="mc-name">Murid 1</div>
-    </div>
-    <div class="mc">
-      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_2" alt="Murid 2">
-      <div class="mc-name">Murid 2</div>
-    </div>
-    <div class="mc">
-      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_3" alt="Murid 3">
-      <div class="mc-name">Murid 3</div>
-    </div>
-    <div class="mc">
-      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_4" alt="Murid 4">
-      <div class="mc-name">Murid 4</div>
-    </div>
-    <div class="mc">
-      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_5" alt="Murid 5">
-      <div class="mc-name">Murid 5</div>
-    </div>
-    <div class="mc">
-      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_6" alt="Murid 6">
-      <div class="mc-name">Murid 6</div>
-    </div>
-    <div class="mc">
-      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_7" alt="Murid 7">
-      <div class="mc-name">Murid 7</div>
-    </div>
-    <div class="mc">
-      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_8" alt="Murid 8">
-      <div class="mc-name">Murid 8</div>
-    </div>
-    <div class="mc">
-      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_9" alt="Murid 9">
-      <div class="mc-name">Murid 9</div>
-    </div>
-    <div class="mc">
-      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_10" alt="Murid 10">
-      <div class="mc-name">Murid 10</div>
-    </div>
-    <div class="mc">
-      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_11" alt="Murid 11">
-      <div class="mc-name">Murid 11</div>
-    </div>
-    <div class="mc">
-      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_12" alt="Murid 12">
-      <div class="mc-name">Murid 12</div>
-    </div>
-    <div class="mc">
-      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_13" alt="Murid 13">
-      <div class="mc-name">Murid 13</div>
-    </div>
-    <div class="mc">
-      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_14" alt="Murid 14">
-      <div class="mc-name">Murid 14</div>
-    </div>
-    <div class="mc">
-      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_15" alt="Murid 15">
-      <div class="mc-name">Murid 15</div>
-    </div>
-    <div class="mc">
-      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_16" alt="Murid 16">
-      <div class="mc-name">Murid 16</div>
-    </div>
-    <div class="mc">
-      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_17" alt="Murid 17">
-      <div class="mc-name">Murid 17</div>
-    </div>
-    <div class="mc">
-      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_18" alt="Murid 18">
-      <div class="mc-name">Murid 18</div>
-    </div>
-    <div class="mc">
-      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_19" alt="Murid 19">
-      <div class="mc-name">Murid 19</div>
-    </div>
-    <div class="mc">
-      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_20" alt="Murid 20">
-      <div class="mc-name">Murid 20</div>
-    </div>
-    <div class="mc">
-      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_21" alt="Murid 21">
-      <div class="mc-name">Murid 21</div>
-    </div>
-    <div class="mc">
-      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_22" alt="Murid 22">
-      <div class="mc-name">Murid 22</div>
-    </div>
-    <div class="mc">
-      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_23" alt="Murid 23">
-      <div class="mc-name">Murid 23</div>
-    </div>
-    <div class="mc">
-      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_24" alt="Murid 24">
-      <div class="mc-name">Murid 24</div>
-    </div>
-    <div class="mc">
-      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_25" alt="Murid 25">
-      <div class="mc-name">Murid 25</div>
-    </div>
-    <div class="mc">
-      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_26" alt="Murid 26">
-      <div class="mc-name">Murid 26</div>
-    </div>
-    <div class="mc">
-      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_27" alt="Murid 27">
-      <div class="mc-name">Murid 27</div>
-    </div>
-    <div class="mc">
-      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_28" alt="Murid 28">
-      <div class="mc-name">Murid 28</div>
-    </div>
-    <div class="mc">
-      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_29" alt="Murid 29">
-      <div class="mc-name">Murid 29</div>
-    </div>
-    <div class="mc">
-      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_30" alt="Murid 30">
-      <div class="mc-name">Murid 30</div>
-    </div>
-    <div class="mc">
-      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_31" alt="Murid 31">
-      <div class="mc-name">Murid 31</div>
-    </div>
-    <div class="mc">
-      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_32" alt="Murid 32">
-      <div class="mc-name">Murid 32</div>
-    </div>
-    <div class="mc">
-      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_33" alt="Murid 33">
-      <div class="mc-name">Murid 33</div>
-    </div>
-    <div class="mc">
-      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_34" alt="Murid 34">
-      <div class="mc-name">Murid 34</div>
-    </div>
-    <div class="mc">
-      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_35" alt="Murid 35">
-      <div class="mc-name">Murid 35</div>
-    </div>
-    <div class="mc">
-      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_36" alt="Murid 36">
-      <div class="mc-name">Murid 36</div>
-    </div>
-    <div class="mc">
-      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_37" alt="Murid 37">
-      <div class="mc-name">Murid 37</div>
-    </div>
-    <div class="mc">
-      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_38" alt="Murid 38">
-      <div class="mc-name">Murid 38</div>
-    </div>
-    <div class="mc">
-      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_39" alt="Murid 39">
-      <div class="mc-name">Murid 39</div>
-    </div>
-    <div class="mc">
-      <img class="mc-photo" src="GANTI_URL_FOTO_MURID_40" alt="Murid 40">
-      <div class="mc-name">Murid 40</div>
-    </div>
-
+<div class="lightbox-overlay" id="lightbox" onclick="closeLightbox(event)">
+  <div class="lightbox-box">
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <img id="lightboxImg" src="" alt="">
+    <div class="lightbox-caption" id="lightboxCaption"></div>
   </div>
-</div>
-
-<div class="tab-panel" id="tab-galeri">
-  <div class="gallery-grid">
-    <div class="gallery-item"><img src="https://files.catbox.moe/rris6z.jpg" alt="Kenangan 1"></div>
-    <div class="gallery-item"><img src="https://files.catbox.moe/c1sdji.jpg" alt="Kenangan 2"></div>
-    <div class="gallery-item"><img src="https://files.catbox.moe/1v68gr.jpg" alt="Kenangan 3"></div>
-    <div class="gallery-item"><img src="https://files.catbox.moe/0yxucj.jpg" alt="Kenangan 4"></div>
-  </div>
-</div>
-
-<div class="tab-panel" id="tab-babu"><div id="babuList"></div></div>
 </div>
 
 <div class="bottom-spacer"></div>
@@ -589,7 +393,7 @@ img{max-width:100%}
 
 <script type="module">
 import {initializeApp} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-import {getDatabase,ref,push,onValue,remove} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js";
+import {getDatabase,ref,onValue,remove} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js";
 
 const firebaseConfig={
   apiKey:"AIzaSyBRsEBKTY84gsqDKnhONjs9LIjwykQPnPE",
@@ -605,32 +409,6 @@ const app=initializeApp(firebaseConfig);
 const db=getDatabase(app);
 const tasksRef=ref(db,'tasks');
 
-window.addTask=function(){
-  const subjectSelect=document.getElementById('taskSubject');
-  const taskName=document.getElementById('taskName').value.trim();
-  const taskWork=document.getElementById('taskWork').value.trim();
-  const taskDate=document.getElementById('taskDate').value.trim();
-  const selectedOption=subjectSelect.options[subjectSelect.selectedIndex];
-  const subject=subjectSelect.value;
-  const image=selectedOption?selectedOption.dataset.img:'';
-
-  if(!subject){alert('Pilih pelajaran terlebih dahulu.');return}
-  if(!taskName){alert('Nama tugas belum diisi.');return}
-  if(!taskWork){alert('Bagian "Yang Dikerjakan" belum diisi.');return}
-  if(!taskDate){alert('Hari dikumpulkan belum diisi.');return}
-
-  push(tasksRef,{subject,image,name:taskName,work:taskWork,date:taskDate,createdAt:Date.now()})
-  .then(()=>{
-    subjectSelect.value='';
-    document.getElementById('taskName').value='';
-    document.getElementById('taskWork').value='';
-    document.getElementById('taskDate').value='';
-  })
-  .catch(error=>{
-    console.error(error);
-    alert('Gagal menambahkan tugas.');
-  });
-};
 
 window.deleteTask=function(key){
   if(!confirm('Hapus tugas ini?'))return;
@@ -772,11 +550,15 @@ audio.addEventListener("ended",nextMusic);
 
 loadMusic(0);
 
-function switchTab(id,btn){
-  document.querySelectorAll(".tab-panel").forEach(panel=>panel.classList.remove("active"));
-  document.querySelectorAll(".tab-btn").forEach(button=>button.classList.remove("active"));
-  document.getElementById("tab-"+id).classList.add("active");
-  btn.classList.add("active");
+function openLightbox(src,caption){
+  document.getElementById("lightboxImg").src=src;
+  document.getElementById("lightboxCaption").textContent=caption||"";
+  document.getElementById("lightbox").classList.add("show");
+}
+
+function closeLightbox(e){
+  const lb=document.getElementById("lightbox");
+  if(!e||e.target===lb)lb.classList.remove("show");
 }
 
 function openModal(tag,title,body){
